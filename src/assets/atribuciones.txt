@@ -1,0 +1,29 @@
+ÍCONOS
+"user-interface"
+<a href="https://www.flaticon.com/free-icons/login" title="login icons">Login icons created by berkahicon - Flaticon</a>
+
+"edit(1)"
+<div> undefined <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect"> Pixel perfect </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+
+"close"
+<div> undefined <a href="https://www.flaticon.com/authors/royyan-wijaya" title="Royyan Wijaya"> Royyan Wijaya </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+
+"remove"
+<div> Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect"> Pixel perfect </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+
+"plus"
+<div> undefined <a href="https://www.flaticon.com/authors/fuzzee" title="Fuzzee"> Fuzzee </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+
+"plus(1)"
+<div> undefined <a href="https://www.flaticon.com/authors/dmitri13" title="dmitri13"> dmitri13 </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+
+"delete"
+<div> undefined <a href="https://www.flaticon.com/authors/alfian-dwi-hartanto" title="Alfian Dwi Hartanto"> Alfian Dwi Hartanto </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+
+"more"
+<div> undefined <a href="https://www.flaticon.com/authors/reussy" title="reussy"> reussy </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+
+"menu"
+<div> undefined <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons"> Those Icons </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
+
+"all-directions"

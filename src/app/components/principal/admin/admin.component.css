@@ -1,0 +1,37 @@
+.dinamic {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+article {
+    grid-column: 1/2;
+}
+
+app-sidebar {
+    grid-column:2/-1;
+    grid-row: 1/-1;
+    background: var(--principal-background);
+    color: white;
+}
+
+
+@media screen and (max-width:1024px) {
+    
+}
+
+@media screen and (max-width:500px){
+
+    .dinamic {
+        display:block;
+    }
+    
+    app-sidebar {
+        width: 100%;
+        background: var(--principal-background);
+    }
+}
+
+@media screen and (max-width: 200px){
+    
+}

@@ -1,0 +1,79 @@
+/*General*/
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    /*Colors*/
+    --principal-background:RGB(38, 70, 83);
+    --principal-background-hover:RGB(42, 157, 143);
+    --second-background:RGB(231, 111, 81);
+    --second-background-trans:rgba(244, 162, 97,0.8);
+    --img-project: auto;
+    --mediaQuerySmall: 200px;
+    --mediaQueryMedium: 500px;
+    --mediaQueryLarge: 800px;
+    --mediaQueryXLarge: 1200px;
+
+    /*Fonts*/
+    --special-text: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --special-style: italic;
+
+}
+
+/*Containers*/
+body {
+    border: 3px solid var(--principal-background);/*Eliminar*/
+    /*height: 500px;*/
+    min-width: 200px;
+    /*background-color: #9b9b7a;*/
+}
+
+.container {
+    width: 100%;
+    min-width: 150px;
+}
+
+.component-container {
+    width: 100%;
+    position: relative;
+    margin-top: 30px;
+    min-width: 90px;
+}
+
+/*Textos*/
+p {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 12px;
+}
+
+h6 {
+    font-style: italic;
+}
+
+ul {
+    list-style: none;
+}
+
+@media screen and (min-width: 1200px) {
+
+}
+
+@media screen and (min-width: 800px) {
+
+}
+
+@media scree and (min-width: 500px) {
+
+}
+
+@media screen and (min-width: 200px) {
+    p {
+        font-size: 11px;
+    }
+}
+
+
+
+
