@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Kurale&family=Playfair+Display:ital@0;1&family=Prata&family=Rozha+One&display=swap');
+/*font-family: 'Kurale', serif;
+font-family: 'Playfair Display', serif;
+font-family: 'Rozha One', serif;
+font-family: 'Prata', serif;*/
+
 /*General*/
 * {
     margin: 0px;
@@ -17,7 +23,7 @@
     --mediaQueryXLarge: 1200px;
 
     /*Fonts*/
-    --special-text: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --special-text: 'Prata', sans-serif;
     --special-style: italic;
 
 }
@@ -25,7 +31,7 @@
 /*Containers*/
 body {
     border: 3px solid var(--principal-background);/*Eliminar*/
-    /*height: 500px;*/
+    height: auto;
     min-width: 200px;
     /*background-color: #9b9b7a;*/
 }
