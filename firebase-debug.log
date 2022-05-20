@@ -1,0 +1,25 @@
+[debug] [2022-05-20T22:48:37.289Z] ----------------------------------------------------------------------
+[debug] [2022-05-20T22:48:37.290Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\busco\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-05-20T22:48:37.291Z] CLI Version:   11.0.0
+[debug] [2022-05-20T22:48:37.291Z] Platform:      win32
+[debug] [2022-05-20T22:48:37.291Z] Node Version:  v16.14.0
+[debug] [2022-05-20T22:48:37.292Z] Time:          Fri May 20 2022 19:48:37 GMT-0300 (hora estándar de Argentina)
+[debug] [2022-05-20T22:48:37.292Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-20T22:48:37.299Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-20T22:48:37.300Z] > authorizing via signed-in user (buscosocio2013@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Sandra\frontEnd\FRONTend\portfolio10
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
