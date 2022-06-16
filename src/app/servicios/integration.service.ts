@@ -14,6 +14,6 @@ export class IntegrationService {
   constructor(private http:HttpClient) { }
 
     public listaPersonas():Observable<any> {
-    return this.http.get<Person[]>(this.url + '/person/find/11');
+    return this.http.get<Person[]>(this.url + '/person/find/1');
   }
 }

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl:"https://spring-boot-argentina-programa.herokuapp.com/"
+  baseUrl:"https://afternoon-plains-82162.herokuapp.com"
+  //baseUrl: "https://localhost:8080/"
 };
 
 /*

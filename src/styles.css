@@ -8,6 +8,7 @@ font-family: 'Prata', serif;*/
 * {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 
 :root {
@@ -28,24 +29,32 @@ font-family: 'Prata', serif;*/
 
 }
 
+/*html{
+    height: 100%;
+}*/
+
 /*Containers*/
 body {
-    border: 3px solid var(--principal-background);/*Eliminar*/
-    height: auto;
-    min-width: 200px;
-    /*background-color: #9b9b7a;*/
+    border: 3px solid var(--principal-background-hover);/*Eliminar*/
+    min-height: 100vh;
+    min-width: 300px;
+    background-color: #9b9b7a;
+    position:absolute;
 }
 
 .container {
     width: 100%;
     min-width: 150px;
+    border: 3px solid salmon;
 }
 
 .component-container {
-    width: 100%;
+   /* min-width: 250px;*/
     position: relative;
     margin-top: 30px;
-    min-width: 90px;
+    margin-left: 0px;
+    /*min-width: 90px;*/
+    background-color: yellow;
 }
 
 /*Textos*/
@@ -62,21 +71,30 @@ ul {
     list-style: none;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1200px) {
 
 }
 
-@media screen and (min-width: 800px) {
-
+@media screen and (max-width: 800px) {
+    .component-container{
+        width: 500px;
+    }
 }
 
-@media scree and (min-width: 500px) {
-
+@media scree and (max-width: 500px) {
+    .container{
+        width:50px;
+    }
 }
 
-@media screen and (min-width: 200px) {
+@media screen and (max-width: 200px) {
     p {
         font-size: 11px;
+    }
+
+    .component-container{
+        width:250px;
+        margin-left: 0%;
     }
 }
 
