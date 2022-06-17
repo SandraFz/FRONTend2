@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
-import { PresentationComponent } from './components/presentation/presentation.component';
+import { PresentationComponent } from './components/presentation/presentation.component'
 import { AppRoutingModule } from './app-routing.module';
 import { AdminComponent } from './components/principal/admin/admin.component';
 import { VisitComponent } from './components/principal/visit/visit.component';
