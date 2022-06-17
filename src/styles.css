@@ -49,12 +49,13 @@ body {
 }
 
 .component-container {
-   /* min-width: 250px;*/
-    position: relative;
+   /* min-width: 250px;
+    position: relative;*/
     margin-top: 30px;
-    margin-left: 0px;
-    /*min-width: 90px;*/
+    /*margin-left: 0px;
+    min-width: 90px;*/
     background-color: yellow;
+    width: 100%;
 }
 
 /*Textos*/
@@ -76,9 +77,9 @@ ul {
 }
 
 @media screen and (max-width: 800px) {
-    .component-container{
+    /*.component-container{
         width: 500px;
-    }
+    }*/
 }
 
 @media scree and (max-width: 500px) {
@@ -90,11 +91,6 @@ ul {
 @media screen and (max-width: 200px) {
     p {
         font-size: 11px;
-    }
-
-    .component-container{
-        width:250px;
-        margin-left: 0%;
     }
 }
 
