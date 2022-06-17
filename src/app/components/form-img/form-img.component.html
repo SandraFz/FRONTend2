@@ -1,0 +1,39 @@
+<div >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header"> 
+            <h5 class="modal-title">Cambiar imagen</h5>
+          
+  
+            
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+                
+             <!--Cambiar url--> 
+             <div class="fondo">
+                <img id="imagen" alt="Aqui se carga la imagen" src="https://i.ibb.co/5jSTXdd/telar-mapuche.jpg"/>
+             </div>
+             
+             
+            <form class="newImage">
+                <label for="">Inserte la url de la nueva imagen</label>
+                    <input type="text" id="url_imagen" name="url_imagen" onchange="document.getElementById('imagen').src=this.value;"/>
+                
+                
+            </form>
+
+            </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-save">Save</button>
+          <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

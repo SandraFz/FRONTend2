@@ -1,0 +1,45 @@
+.modal-header {
+    background-color: var(--principal-background);
+}
+
+.btn-save {
+    background: var(--principal-background);
+    color: white;
+}
+
+.btn-close {
+    border: var(--principal-background);
+}
+
+.modal-title {
+    font-family: var(--special-text);
+    color: white;
+}
+
+#imagen {
+    width: 100%;
+}
+
+.newImage {
+    margin-top: 30px;
+    
+}
+
+#url_imagen{
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+.fondo {
+    width:100%;
+    max-height: 400px;
+    min-height: 200px;
+    overflow: hidden;
+    background-size: cover;
+}
+

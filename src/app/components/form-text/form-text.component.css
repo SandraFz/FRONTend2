@@ -1,0 +1,17 @@
+.modal-header {
+    background-color: var(--principal-background);
+}
+
+.btn-save {
+    background: var(--principal-background);
+    color: white;
+}
+
+.btn-close {
+    border: var(--principal-background);
+}
+
+.modal-title {
+    font-family: var(--special-text);
+    color: white;
+}

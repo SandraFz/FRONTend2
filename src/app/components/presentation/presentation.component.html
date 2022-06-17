@@ -1,0 +1,59 @@
+<div class="component-container container-fluid"> <!-- *ngFor="let person of people"--> 
+
+  <!--Presentation- Recordar cambiar en style Article element por clase-->
+  <div class="container1">
+
+    <div class="img-presentation">
+      
+      
+      <app-button-edit class="prof_photo" data-toggle="modal_prof_photo" data-target="#modal_prof_photo" style="background-color: white;"></app-button-edit>
+     <!-- <app-form-img class="modal_prof_photo" tabindex="-1" id="modal_prof_photo" arie-hidden="true"></app-form-img>-->
+
+     <img [src]="person.professional_photo" alt="Lola-y-yo-en-Mascompany" class="img-fluid" alt="...">
+    </div>
+    
+
+    <div class="presentation"><!--aria-labelledby="textArea" role="dialog"-->
+
+      <div class="button">
+        <app-button-edit data-toggle="modal" data-target="#ventana-modal"></app-button-edit>
+        <app-form-text class="modal" tabindex="-1" id="ventana-modal"   arie-hidden="true"></app-form-text>
+      </div>
+      
+      <h2>Sobre mí</h2>
+
+      <p class="text-presentation">{{person.presentation}}</p>
+    </div>
+  </div>
+
+  <!--Resume/Data
+  -->
+  
+
+  <div class="resume">
+    <div id="resume_data" class="button">
+       <!--<app-form1></app-form1>-->
+    </div>
+
+    <span id="name">{{person.name}} {{person.lastName}} - {{person.age}} años.</span><br>
+    <span id="profession">{{person.profession}}</span><br>
+    <span id="origin">{{person.origin}}</span>
+
+    
+  
+      
+
+      <form id="datos" style= "display:none" class="edit">          
+          <input type="text" placeholder="Nombre" maxlength="45" oninput="ingresar_parrafo('name', this.value)">
+          <input type="text" placeholder="Título" maxlength="45" oninput="ingresar_parrafo('title', this.value)">
+          <input type="text" placeholder="Origen" maxlength="45" oninput="ingresar_y_cerrar('origin', this.value, 'datos')">
+          <!--
+              <input type="submit" value="Guardar" onclick="guardar_cambio('datos')">
+          <input id="cancelarEdit" type="submit" value="Cancelar" onclick="cancelarEdit('EditPresentation')">
+          -->
+      </form>
+  </div>
+</div>
+
+
+
