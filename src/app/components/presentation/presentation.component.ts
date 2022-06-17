@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/model/person';
-import { IntegrationService} from '../../../servicios/integration.service'
+import { IntegrationService} from '../../servicios/integration.service'
 
 @Component({
   selector: 'app-presentation',
