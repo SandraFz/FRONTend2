@@ -22,11 +22,15 @@ app-button-edit {
     border: 3px solid green;
 }
 
+
+
 .button {
     width: 100%;
     display: flex;
     justify-content: right;
 }
+
+
 
 #resume_button {
     width: 100%;
