@@ -9,7 +9,7 @@ import { IntegrationService} from '../../servicios/integration.service'
 })
 export class PresentationComponent implements OnInit {
 
-  people:Person[]=[]; 
+ // people:Person[]=[]; 
   person!:Person;
   constructor(private integration:IntegrationService) { }
 
