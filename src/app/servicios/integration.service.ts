@@ -10,10 +10,15 @@ import { Person } from '../model/person';
 export class IntegrationService {
 
   url:string=environment.baseUrl;
+ //id?:number =1;
 
   constructor(private http:HttpClient) { }
 
     public listaPersonas():Observable<any> {
-    return this.http.get<Person[]>(this.url + '/person/find/1');
+    return this.http.get<Person>(this.url + '/person/find/1');
+    /*return this.http.get<Person[]>(this.url + '/person/find/1');*/
   }
+
+  
+
 }
