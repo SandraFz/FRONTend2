@@ -1,0 +1,52 @@
+<div [formGroup]="formPresentation">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header"> 
+            <h5 class="modal-title">Cambiar imagen</h5>
+          
+  
+            
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+                
+             <!--Cambiar url--> 
+             <div class="fondo">
+                <img id="imagen" alt="Aqui se carga la imagen" [src]="person.professional_photo"/>
+             </div>
+             
+             
+            <form class="newImage">
+                <label for="">Inserte la url de la nueva imagen</label>
+                    <input [(ngModel)]="person.professional_photo" type="text" id="url_imagen" formControlName="professional_photo" onchange="document.getElementById('imagen').src=this.value;"/>
+           
+                <div><!--class="form-group"-->
+                  <label for="exampleFormControlTextarea1">Nueva Presentación</label>
+                  <textarea [(ngModel)]="person.presentation" formControlName="presentation" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                </div>
+                
+                <input [(ngModel)]="person.name" type="text" formControlName="name" class="form-control" placeholder=name>
+                <input [(ngModel)]="person.lastName" type="text" formControlName="lastName" class="form-control" placeholder="apellido">
+                <input [(ngModel)]="person.age" type="text" formControlName="age" class="form-control" placeholder="edad">
+                <input [(ngModel)]="person.origin" type="text" formControlName="origin" class="form-control" placeholder="ciudad">
+                <input [(ngModel)]="person.profession" type="text" formControlName="profession" class="form-control" placeholder="título">
+                
+            </form>
+
+
+
+            </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-try">Probar</button>
+          <button  type="button" class="btn btn-save">Guardar</button><!--(click)="updatePerson()"-->
+          <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -11,6 +11,7 @@ export class PresentationComponent implements OnInit {
 
  // people:Person[]=[]; 
   person!:Person;
+
   constructor(private integration:IntegrationService) { }
 
   ngOnInit(): void {
@@ -21,11 +22,11 @@ export class PresentationComponent implements OnInit {
   }
 
   public getPerson(){
-    this.integration.listaPersonas().subscribe(res => {
+    this.integration.getPerson().subscribe(res => {
       console.log(res);
       this.person=res;
     }, error => {
-      console.log("Este es el error: " +error);
+      console.log("Este es el error en componente Presentation: " +error);
     })
   }
 
