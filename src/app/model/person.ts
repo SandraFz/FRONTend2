@@ -1,3 +1,5 @@
+import { Byte } from "@angular/compiler/src/util";
+
 export interface Person {
     
     id?: number;
@@ -8,6 +10,10 @@ export interface Person {
     origin: string;
     presentation: string;
     professional_photo: string;
-    email: string;
+    //email: string;
+
     
 }
+
+    
+ 

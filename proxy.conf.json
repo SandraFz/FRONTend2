@@ -1,0 +1,7 @@
+{
+    "/person/*": {
+        "target": "https://afternoon-plains-82162.herokuapp.com",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

@@ -4,8 +4,11 @@
 
 export const environment = {
   production: false,
-  baseUrl:"https://afternoon-plains-82162.herokuapp.com"
-  //baseUrl: "https://localhost:8080/"
+  //baseUrl:"https://afternoon-plains-82162.herokuapp.com"
+  //baseUrl: "http://localhost:8080"
+  
+  //Configuracion proxy
+  baseUrl:"/person/"
 };
 
 /*
