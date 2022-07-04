@@ -26,7 +26,7 @@ export class PresentationComponent implements OnInit {
       console.log(res);
       this.person=res;
     }, error => {
-      console.log("Este es el error en componente Presentation: " +error);
+      console.log("Este es el error en componente Presentation: " + error);
     })
   }
 
