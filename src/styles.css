@@ -38,8 +38,13 @@ body {
     border: 3px solid var(--principal-background-hover);/*Eliminar*/
     min-height: 100vh;
     min-width: 300px;
-    background-color: #9b9b7a;
+    /*background-color: #9b9b7a;*/
     position:absolute;
+}
+
+body.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .container {
@@ -54,7 +59,7 @@ body {
     margin-top: 30px;
     /*margin-left: 0px;
     min-width: 90px;*/
-    background-color: yellow;
+    /*background-color: yellow;*/
     width: 100%;
 }
 

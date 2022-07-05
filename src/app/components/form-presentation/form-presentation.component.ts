@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRouteSnapshot } from '@angular/router';
 
 import { Person } from 'src/app/model/person';
 import { IntegrationService } from 'src/app/servicios/integration.service';
@@ -22,7 +23,7 @@ export class FormPresentationComponent implements OnInit {
     professional_photo: new FormControl(''),
     //email: new FormControl('')
   })
-  idPers:number = 1;
+  idPers:any = '';
 
   constructor(private integration:IntegrationService) { }
 
@@ -32,9 +33,20 @@ export class FormPresentationComponent implements OnInit {
 
   public getPerson() {
     this.integration.getPerson().subscribe(res=> {
+      const  {id_person, name, lastName, age, profession, origin, presentation, professional_photo } = res
+      this.idPers = id_person;
       this.person=res;
     }, error => {
-      console.log("Problemas con la entidad en el formulario.")
+      console.log("FormPresentation: " + error)
+    })
+  }
+
+  public updatePerson() {
+    this.integration.getPersonById(this.idPers)
+    let person = this.formPresentation.value
+    this.integration.updatePerson(this.idPers, person).subscribe(() => {
+    }, error => {
+      console.log("updatePerson: " + error)
     })
   }
 

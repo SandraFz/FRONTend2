@@ -13,6 +13,7 @@ import { FormImgComponent } from './components/form-img-Presentation/form-img.co
 import { ButtonEditComponent } from './components/button-edit/button-edit';
 import { FormTextComponent } from './components/form-text-Presentation/form-text.component';
 import { FormPresentationComponent } from './components/form-presentation/form-presentation.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 
 
@@ -27,6 +28,7 @@ import { FormPresentationComponent } from './components/form-presentation/form-p
     FormImgComponent,
     FormTextComponent,
     FormPresentationComponent,
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,

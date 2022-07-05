@@ -2,7 +2,7 @@ import { Byte } from "@angular/compiler/src/util";
 
 export interface Person {
     
-    id?: number;
+    id_person?: number;
     name: string;
     lastName: string;
     age: number;

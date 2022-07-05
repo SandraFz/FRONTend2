@@ -16,24 +16,18 @@ export class IntegrationService {
 
   constructor(private http:HttpClient) { }
 
-  public getPerson(id?:number):Observable<Person>{
-    return this.http.get<Person>(this.url+"/person/find/"+ id);
-  }
-  
-/*
-  public getPerson():Observable<any> {
-    return this.http.get<Person>(this.url + '/person/find/1');
-  }
-  */
-/*
-  public getPersonById(id:number){
-    return this.http.get(this.url+'/person/find/id'); 
+  public getPerson():Observable<Person>{
+    return this.http.get<Person>(this.url+"/person/find/"+this.id);
   }
 
-  public updatePerson(id: number, person: Person){
+  public getPersonById(id:number):Observable<Person>{
+    return this.http.get<Person>(this.url+"/person/find/"+id);
+  }
+
+    public updatePerson(id: number, person: Person){
     
-   return this.http.put(this.url+'/person/edit/${id}', person);
-  }*/
+   return this.http.put(this.url+'/person/edit/'+id, person);
+  }
 
   
 
