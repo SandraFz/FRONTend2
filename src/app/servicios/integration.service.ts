@@ -11,18 +11,20 @@ import { Person } from '../model/person';
 export class IntegrationService {
 
   url:string=environment.baseUrl;
+  id: number = 1;
   
 
   constructor(private http:HttpClient) { }
-/*
-  public getPerson(id:number):Observable<Person>{
-    return this.http.get<Person>(`${this.url}/person/find/${id}`);
-  }
-  */
 
+  public getPerson(id?:number):Observable<Person>{
+    return this.http.get<Person>(this.url+"/person/find/"+ id);
+  }
+  
+/*
   public getPerson():Observable<any> {
     return this.http.get<Person>(this.url + '/person/find/1');
   }
+  */
 /*
   public getPersonById(id:number){
     return this.http.get(this.url+'/person/find/id'); 

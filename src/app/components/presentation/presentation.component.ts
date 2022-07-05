@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Person } from 'src/app/model/person';
 import { IntegrationService} from '../../servicios/integration.service'
 
@@ -10,9 +11,10 @@ import { IntegrationService} from '../../servicios/integration.service'
 export class PresentationComponent implements OnInit {
 
  // people:Person[]=[]; 
-  person!:Person;
+ id?:number;
+person!:Person;
 
-  constructor(private integration:IntegrationService) { }
+  constructor(private integration:IntegrationService, private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
    this.getPerson();
