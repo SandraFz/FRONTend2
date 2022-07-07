@@ -3,63 +3,47 @@
     <div class="title">
         <h2>Mis proyectos en proceso</h2>
     </div>
-    
+
     <br>
-    <div *ngFor="let project of projects" class="ngPrincipal">
-        <div class="card principal-card" *ngIf="project.principal===true">
-            <div class="objetfitcover">
-                <img [src]="project.img_proy" class="card-img-top" alt="...">
-            </div>
+    <div class="flex">
+        <div *ngFor="let project of projects" class="ngPrincipal sub_project">
+            <div class="card principal-card" *ngIf="project.principal===true">
+                <div class="objetfitcover">
+                    <img [src]="project.img_proy" class="card-img-top" alt="...">
+                </div>
 
-            <div class="card-body">
-                <h5 class="card-title">{{project.name_project}}</h5>
-                <p class="card-text">{{project.description}}</p>
+                <div class="card-body">
+                    <h5 class="card-title">{{project.name_project}}</h5>
+                    <p class="card-principal-text">{{project.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="other_proy sub_project">
+            <div class="ngForOther" *ngFor="let project of projects">
+                
+                <div class="cardOthers" *ngIf="project.principal===false">
+                    
+                    <div class="card option1">
+                        <img [src]="project.img_proy" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                           
+                            <p class="card-text"><strong>{{project.name_project}}</strong> - {{project.description}}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card option2">
+                        <img [src]="project.img_proy" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title2">{{project.name_project}}</h5>
+                            <p class="card-text2">{{project.description}}</p>
+                        
+                        </div>
+                      </div>
+                     
+                    
+                    
+                </div>
             </div>
         </div>
     </div>
-
-    <div  *ngFor="let project of projects" class="ngOthers" >
-        <div class="card other_proy" *ngIf="project.principal===false">
-
-            <div class="card bg-dark text-white">
-                <img [src]="project.img_proy" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                  <h5 class="card-title">{{project.name_project}}</h5>
-                  <p class="card-text">{{project.description}}</p>
-                </div>
-              </div>
-<!--
- <div class="objetfitcover ppalFitCover">
-                <img  class="card-img-top" alt="...">
-            </div>
-
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-            </div>
--->
-           
-        </div>
-    </div>
-
-
-    <!--
-        <div id="other_proy" *ngIf="project.principal===false">
-            <div class="card bg-dark text-white" >
-                <img [src]="project.img_proy" class="card-img img-fluid" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title"><img [src]="project.logo_img" class="img-fluid" alt=""></h5>
-                    <p class="card-text">{{project.description}}.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
-        </div>-->
-    <!--
-            <button id="btn_other_proy">
-                <img [src]="project.logo_img" alt="">
-            </button>
-            <img [src]="project.img_project" alt="">
-        </div>
-        <p>{{project.description}}</p>-->
-
 </article>

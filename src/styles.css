@@ -16,7 +16,7 @@ font-family: 'Prata', serif;*/
     --principal-background:RGB(38, 70, 83);
     --principal-background-hover:RGB(42, 157, 143);
     --second-background:RGB(231, 111, 81);
-    --second-background-trans:rgba(244, 162, 97,0.8);
+    --second-background-trans:rgba(244, 162, 97,0.5);
     --img-project: auto;
     --mediaQuerySmall: 200px;
     --mediaQueryMedium: 500px;
@@ -26,7 +26,8 @@ font-family: 'Prata', serif;*/
     /*Fonts*/
     --special-text: 'Prata', sans-serif;
     --special-style: italic;
-
+    --simple-text:'Times New Roman', Times, serif;;
+    
 }
 
 /*html{
@@ -65,12 +66,13 @@ body.container-fluid {
 
 /*Textos*/
 p {
-    font-family:'Times New Roman', Times, serif;
+
     font-size: 12px;
 }
 
 h6 {
-    font-style: italic;
+    font-style: var(--simple-text);
+   
 }
 
 ul {
