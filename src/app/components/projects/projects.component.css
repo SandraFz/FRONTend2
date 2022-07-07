@@ -1,0 +1,62 @@
+a {
+    text-decoration: none;
+}
+
+.component-container {
+    display:grid;
+    gap:1rem;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    border: 2px solid blue;
+    justify-content: center;
+    max-height: 500px;
+}
+ .title{
+    width: 100%;
+ }
+ 
+.objetfitcover > img{
+	width: 100%;
+	max-height: 300px;
+	object-fit: cover;
+    /*overflow: hidden;*/
+	
+}
+/*
+.card {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border: 3px solid #ff9daa;
+}
+*/
+/*.acordion-body */
+.other_proy{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+}
+
+.ngPrincipal{
+    grid-column: span 2;
+    border: 2 px solid fuchsia;
+}
+
+.ngOthers {
+    border: 2px solid orange;
+    grid-column: span 1;
+    height: 0%;
+}
+
+p {
+    color:black;
+}
+
+@media screen and (max-width: 600px) {
+    .component-container {
+        display: block;
+    }
+}
+
+
