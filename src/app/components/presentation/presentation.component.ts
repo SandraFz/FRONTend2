@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Person } from 'src/app/model/person';
+import { Person } from '../../model/person';
 import { IntegrationService} from '../../servicios/integration.service'
 
 @Component({
@@ -28,7 +28,7 @@ person!:Person;
       console.log(res);
       this.person=res;
     }, error => {
-      console.log("Este es el error en componente Presentation: " + error);
+      console.log(error);
     })
   }
 

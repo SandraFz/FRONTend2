@@ -14,6 +14,8 @@ import { ButtonEditComponent } from './components/button-edit/button-edit';
 import { FormTextComponent } from './components/form-text-Presentation/form-text.component';
 import { FormPresentationComponent } from './components/form-presentation/form-presentation.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { ButtonAddComponent } from './button-add/button-add.component';
+import { FormProyAddComponent } from './form-proy-add/form-proy-add.component';
 
 
 
@@ -29,6 +31,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
     FormTextComponent,
     FormPresentationComponent,
     ProjectsComponent,
+    ButtonAddComponent,
+    FormProyAddComponent,
   ],
   imports: [
     BrowserModule,

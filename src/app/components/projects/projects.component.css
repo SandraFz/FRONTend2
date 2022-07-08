@@ -50,13 +50,13 @@ a {
 .card-text{
     border-radius: 10px;
  opacity: 0;
- color:white;
+ color:var(--principal-background);
  font-family: var(--special-style);
 }
 
 .card-text:hover{
     opacity: 1;
-    background-color: var(--principal-background);
+    background-color: white;
     padding: 5px;
 }
 
@@ -97,6 +97,12 @@ p {
 
 h2, h5 {
     font-family: var(--simple-text);
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    justify-content: right;
 }
 
 @media screen and (max-width: 1200px) {
@@ -141,7 +147,7 @@ h2, h5 {
 
     .cardOthers{
         border: 2px solid var(--principal-background);
-        padding: 5px;
+        margin: 30px;
     }
 }
 

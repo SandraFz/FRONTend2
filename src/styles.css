@@ -41,6 +41,7 @@ body {
     min-width: 300px;
     /*background-color: #9b9b7a;*/
     position:absolute;
+    
 }
 
 body.container-fluid {
@@ -77,6 +78,12 @@ h6 {
 
 ul {
     list-style: none;
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    justify-content: right;
 }
 
 @media screen and (max-width: 1200px) {

@@ -1,5 +1,3 @@
-import { Byte } from "@angular/compiler/src/util";
-
 export interface Person {
     
     id_person?: number;

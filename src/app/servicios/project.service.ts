@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 
 import { environment } from "src/environments/environment";
 import { Observable } from "rxjs";
-import { Projects } from "../model/projects";
+import { Project } from "../model/project";
 import { IntegrationService } from "./integration.service";
 
 @Injectable({providedIn:'root'})
@@ -14,10 +14,13 @@ export class ProjectService {
 
     constructor (private http:HttpClient){}
     
-    public projectList():Observable<Projects[]>{
-        return this.http.get<Projects[]>(this.url+'/project/list/'+this.idPers)
+    public projectList():Observable<Project[]>{
+        return this.http.get<Project[]>(this.url+'/project/list/'+this.idPers);
     }
 
+    public addProject(proy:Project):Observable<Project>{
+        return this.http.post<Project>(this.url+'/project/new/'+this.idPers, proy);
+    }
 
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Projects } from 'src/app/model/projects';
+import { Project } from 'src/app/model/project';
 import { ProjectService } from 'src/app/servicios/project.service';
 
 @Component({
@@ -9,8 +9,8 @@ import { ProjectService } from 'src/app/servicios/project.service';
 })
 export class ProjectsComponent implements OnInit {
 
-  projects:Projects[] = [];
-  project!:Projects;
+  projects:Project[] = [];
+  project!:Project;
   id?:number=1;
 
   
