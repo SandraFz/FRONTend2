@@ -44,7 +44,7 @@ export class FormProyAddComponent implements OnInit {
   
 
   public addProject(){
-    this.servicio.addProject(this.formProject.value).subscribe(res => {
+    this.servicio.addProject(this.idPers, this.formProject.value).subscribe(res => {
       this.formProject.reset
     }, error => {
       console.log(error);

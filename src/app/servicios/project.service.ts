@@ -18,8 +18,8 @@ export class ProjectService {
         return this.http.get<Project[]>(this.url+'/project/list/'+this.idPers);
     }
 
-    public addProject(proy:Project):Observable<Project>{
-        return this.http.post<Project>(this.url+'/project/new/'+this.idPers, proy);
+    public addProject(idPers:number, proy:Project):Observable<Project>{
+        return this.http.post<Project>(this.url+"/project/new/"+ idPers, proy);
     }
 
 
