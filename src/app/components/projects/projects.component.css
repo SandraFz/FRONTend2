@@ -105,6 +105,13 @@ h2, h5 {
     justify-content: right;
 }
 
+button-delete{
+    position: absolute;
+    z-index: 2;
+    margin-left: -50px;
+    /*border: 3px solid green;*/
+}
+
 @media screen and (max-width: 1200px) {
     .flex {
         display: block;

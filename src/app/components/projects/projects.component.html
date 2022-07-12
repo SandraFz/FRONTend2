@@ -8,11 +8,15 @@
         <app-button-add data-toggle="modal" data-target="#add_proy"></app-button-add>
         <app-form-proy-add class="modal" id="add_proy" arie-hidden="true"></app-form-proy-add>
    </div>
+   
     
     <br>
     <div class="flex">
         <div *ngFor="let project of projects" class="ngPrincipal sub_project">
+            <div class="button"><app-button-edit data-toggle="modal" data-target="#edit_proy" (click)="getProject(project.id_project)"></app-button-edit><app-button-delete (click)="deleteProject(project.id_project)"></app-button-delete></div>
+            <app-edit-project class="modal" id="edit_proy"></app-edit-project>
             <div class="card principal-card" *ngIf="project.principal===true">
+                            
                 <div class="objetfitcover">
                     
                     <img [src]="project.img_proy" class="card-img-top" alt="...">
@@ -30,6 +34,8 @@
                 <div class="cardOthers" *ngIf="project.principal===false">
                     
                     <div class="card option1">
+
+                        <div class="button"><app-button-delete (click)="deleteProject(project.id_project)"></app-button-delete></div>
                         <img [src]="project.img_proy" class="card-img" alt="...">
                         <div class="card-img-overlay">
                            
@@ -38,6 +44,8 @@
                     </div>
                     
                     <div class="card option2">
+                        <div class="button"><app-button-delete (click)="deleteProject(project.id_project)"></app-button-delete></div>
+                        
                         <img [src]="project.img_proy" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title2">{{project.name_project}}</h5>
