@@ -14,6 +14,16 @@ export class ProjectsComponent implements OnInit {
   project!:Project;
   id?:number;
 
+  formNewProject = new FormGroup ({
+    //id_project: new FormControl,
+     name_project: new FormControl(''),
+     principal: new FormControl('true'),
+     description: new FormControl(''),
+     img_proy: new FormControl(''),
+     logo_img: new FormControl(''),
+     link_project: new FormControl(''),
+   })
+
   formEditProy = new FormGroup({
     id_project: new FormControl(''),
     name_project: new FormControl(''),
@@ -41,6 +51,16 @@ export class ProjectsComponent implements OnInit {
       console.log("pojectsComponent: " + error);})
   }
 
+  public addProject3(){
+    let project = this.formNewProject.value
+    this.servicio.addProject(project).subscribe((res)=> {
+      this.projects.push(res)
+      this.formNewProject.reset('')
+    }, error => {
+      console.error(error)
+    })
+  }
+
   public getProject(id:number){
     this.servicio.getProject(id).subscribe(res=>{
       console.log(res)
@@ -59,7 +79,7 @@ export class ProjectsComponent implements OnInit {
 
   public getProjectById(id: number) {
     this.servicio.getProject(id).subscribe(res => {
-      const {id_project, name_project,principal, description, img_proy, logo_img, link_project, person} = res;
+      const {id_project, name_project,principal, description, img_proy, logo_img, link_project} = res;
       this.formEditProy.setValue({name_project, principal, description, img_proy, link_project})
       console.log(res)
     }, error => {
@@ -69,7 +89,7 @@ export class ProjectsComponent implements OnInit {
 
   public getProject1(id:number){
     this.servicio.getProject(id).subscribe(res=>{
-      const {id_project, name_project,principal, description, img_proy, logo_img, link_project, person} = res;
+      const {id_project, name_project,principal, description, img_proy, logo_img, link_project} = res;
       this.formEditProy.setValue({name_project, principal, description, img_proy, logo_img, link_project})
       this.id=id;
     })

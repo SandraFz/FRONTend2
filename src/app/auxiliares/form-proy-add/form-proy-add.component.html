@@ -1,59 +1,44 @@
-<div>
-    <!--[formGroup]="Agregar proyecto"-->
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Agregar projecto</h5>
+<form class="form" [formGroup]="miFormulario"  class="login-form">
 
+    <!-- Single Input 1 -->
+    <div class="contenedor">
+      <div class="name">
+  
+    
+        <input class="input" type="text" id="name" name="name" formControlName="name_project" placeholder="Nombre" />
+      </div>
+      <!-- Single Input 1 -->
+      <div class="singleInput">
+  
+        
+        <input class="input" type="text" id="information" name="information" formControlName="principal"
+          placeholder="principal" />
+      </div>
+      <!-- Single Input 1 -->
+      <div class="singleInput">
+  
+        
+        <input class="input" type="text" id="imageUrl" name="imageUrl" formControlName="description"
+          placeholder="Url imagen" />
+      </div>
+  
+      <div class="singleInput">
+  
+        
+        <input class="input" type="text" id="repoUrl" name="repoUrl" formControlName="img_proy" placeholder="Url repo" />
+      </div>
 
+      <input class="input" type="text" id="repoUrl" name="repoUrl" formControlName="logo_img" placeholder="Url repo" />
+      </div>
 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form [formGroup]="formProject" (ngSubmit)="addProject1() ">
-                    <div class="form-group">
-
-                        <!--Cambiar url-->
-                        <div class="fondo">
-                            <img id="imagen-proy" [src]="project.img_proy" alt="Aqui se carga la imagen" />
-                        </div>
-
-
-
-                        <label for="">Inserte la url de la nueva imagen</label>
-                        <input type="text" id="url_imagen" formControlName="img_proy"
-                            onchange="document.getElementById('imagen-proy').src=this.value;" [(ngModel)]="project.img_proy" required />
-
-                        <div>
-                            <!--class="form-group"-->
-                            <label for="exampleFormControlTextarea1">Nueva descripción</label>
-                            <textarea formControlName="description" class="form-control"
-                                id="exampleFormControlTextarea1" rows="5" [(ngModel)]="project.description" required></textarea>
-                        </div>
-                        <!--
-                <input type="text" formControlName="id_project" class="form-control" placeholder="id_project" required>-->
-                        <input type="text" formControlName="name_project" class="form-control"                         placeholder="nombre del poyecto" [(ngModel)]="project.name_project" required>
-                        <label for="principal">¿Es el proyecto principal?
-                            <input type="text" formControlName="principal" class="form-control" value="true"
-                                [(ngModel)]="project.principal"></label>
-                        <input type="text" formControlName="link_project" class="form-control"
-                            placeholder="link al proyecto" required>
-                        <input type="text" formControlName="logo_project" class="form-control"
-                            placeholder="link del logo del projecto" [(ngModel)]="project.link_project" required>
-                            <div class="modal-footer">
-                                <!--<button type="button" class="btn btn-try">Probar</button>-->
-                                <button type="button" class="btn btn-save" (click)="addProject3()">Guardar</button>
-                                <!--(click)="updatePerson()"-->
-                                <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
-                            </div>
-
-                    </div>
-
-                </form>
-            </div>
-
-        </div>
-    </div>
-</div>
+      <input class="input" type="text" id="repoUrl" name="repoUrl" formControlName="link_project" placeholder="Url repo" />
+      
+      <!-- Botones -->
+  
+      <div class="btn-add">
+        <button class="btn" type="button" type="submit" (click)="onSubmit()">
+          Enviar
+        </button>
+      </div>
+    
+  </form>

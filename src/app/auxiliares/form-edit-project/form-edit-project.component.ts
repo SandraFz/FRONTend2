@@ -14,7 +14,7 @@ export class EditProjectComponent implements OnInit {
   project!: Project;
   formEditProy = new FormGroup({
     id_project: new FormControl(''),
-    name_project: new FormControl(''),
+    name_project: new FormControl('nombre'),
     principal: new FormControl('true'),
     img_proy: new FormControl(''),
     logo_img: new FormControl(''),
@@ -42,7 +42,7 @@ export class EditProjectComponent implements OnInit {
 
   public getProject(id:number){
     this.servicio.getProject(id).subscribe(res=>{
-      const {id_project, name_project,principal, description, img_proy, logo_img, link_project, person} = res;
+      const {id_project, name_project,principal, description, img_proy, logo_img, link_project} = res;
       this.formEditProy.setValue({name_project, principal, description, img_proy, logo_img, link_project})
       
     })

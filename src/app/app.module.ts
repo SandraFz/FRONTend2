@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PresentationComponent } from './components/presentation/presentation.component'
@@ -18,7 +17,7 @@ import { ButtonAddComponent } from './auxiliares/button-add/button-add.component
 import { FormProyAddComponent } from './auxiliares/form-proy-add/form-proy-add.component';
 import { ButtonDeleteComponent } from './auxiliares/button-delete/button-delete.component';
 import { EditProjectComponent } from './auxiliares/form-edit-project/form-edit-project.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -42,7 +41,8 @@ import { EditProjectComponent } from './auxiliares/form-edit-project/form-edit-p
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

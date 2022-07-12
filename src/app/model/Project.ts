@@ -6,5 +6,5 @@ export interface Project {
     img_proy: string; 
     logo_img: string;
     link_project: string;
-    person: number;
+    
 }

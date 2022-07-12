@@ -13,97 +13,53 @@ import { IntegrationService } from '../../servicios/integration.service';
   styleUrls: ['./form-proy-add.component.css']
 })
 export class FormProyAddComponent implements OnInit {
-  proy:ProjectClass[] = []
-  projects:Project[] = [];
-  project!:Project;
-  formProject = new FormGroup ({
-   //id_project: new FormControl,
-    name_project: new FormControl(''),
-    principal: new FormControl('true'),
-    description: new FormControl(''),
-    img_proy: new FormControl(''),
-    logo_img: new FormControl(''),
-    link_project: new FormControl(''),
-  })
-  
+ 
+  miFormulario!:FormGroup;
 
-  idPers=1;
-  idProy:any="";
-
-  constructor(private integration:IntegrationService, private servicio:ProjectService, private formBuilder:FormBuilder) {  }
+  constructor(private servicio:ProjectService, private formBuilder:FormBuilder) {  }
 
   ngOnInit(): void {
-    this.projectList();
-    /*
-  newProjectForm = this.formBuilder.group({
-    id_project: [''],
-    name_project: [''],
-    principal: [''] ,
-    description: [''],
-    img_proy: [''],
-    logo_img: [''],
-    link_project: [''],
-  })
-  */
-    
+    this.miFormulario=this.formBuilder.group({ 
+    name_project: new FormControl('', [Validators.required]),
+    principal: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    img_proy: new FormControl('', [Validators.required]),
+    logo_img: new FormControl('', [Validators.required]),
+    link_project: new FormControl('', [Validators.required])
+    });
   }
 
-  public projectList(){
-    
-    this.servicio.projectList().subscribe(res => {
-      console.log(res)
-      this.projects = res;
-    }, error => {
-      console.log("projectsComponent: " + error);})
+  get name_project(){
+    return this.miFormulario.get("name_project");
   }
+
+  get principal(){
+    return this.miFormulario.get("principal");
+  }
+  get description(){
+    return this.miFormulario.get("description");
+  }
+  get img_proy(){
+    return this.miFormulario.get("img_proy");
+  }
+  get logo_img(){
+    return this.miFormulario.get("logo_img");
+  }
+  get link_project(){
+    return this.miFormulario.get("link_project");
+  }
+  
+  
 
   onSubmit(){
-    this.formProject.controls['name_project'].setValue(this.project.name_project);
-    this.formProject.controls['principal'].setValue(this.project.principal);
-    this.formProject.controls['name_project'].setValue(this.project.description);
-    this.formProject.controls['img_proy'].setValue(this.project.img_proy);
-    this.formProject.controls['name_project'].setValue(this.project.logo_img);
-    this.formProject.controls['link_project'].setValue(this.project.link_project);
-  }
-/*
-  public addProject(){
-    console.log(this.formProject.value);
-    this.servicio.addProject(this.idPers, this.formProject.value).subscribe(res => {
-      console.log(res);
-      this.formProject.reset
-    }, error => {
-      console.error(error);
-    })
-  }*/
-/*
-  public addProject2(){
-    
-    this.servicio.addProject(this.idPers, this.formProject.value).subscribe(()=>{
-    }, error => {
-      console.log("updatePerson: " + error)
-    });
-  }*/
-
-  public addProject1(){
-    this.servicio.addProject(this.formProject.value).subscribe(res => {
-      
-     //this.proy.push(res)
-      console.log(res);
-      this.formProject.reset('')
-    }, error => {
-      console.error(error);
+    this.servicio.addProject(this.miFormulario.value).subscribe({
+      next:(response)=>{
+        console.log(response);
+        window.location.reload();
+        alert("Projecto registrado!")
+      }
     })
   }
 
-  public addProject3(){
-    let project = this.formProject.value
-    this.servicio.addProject(project).subscribe((res)=> {
-      this.proy.push(res)
-    }, error => {
-      console.error(error)
-    })
-  }
-  
-  
 
 }
