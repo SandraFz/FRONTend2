@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRouteSnapshot } from '@angular/router';
 
-import { Person } from 'src/app/model/person';
+import { Person } from 'src/app/model/Person';
 import { IntegrationService } from 'src/app/servicios/integration.service';
 
 @Component({
@@ -12,8 +12,8 @@ import { IntegrationService } from 'src/app/servicios/integration.service';
 })
 export class FormPresentationComponent implements OnInit {
 
-  person!:Person;
-  formPresentation = new FormGroup ({
+  person!: Person;
+  formPresentation = new FormGroup({
     name: new FormControl(''),
     lastName: new FormControl(''),
     age: new FormControl(''),
@@ -23,19 +23,19 @@ export class FormPresentationComponent implements OnInit {
     professional_photo: new FormControl(''),
     //email: new FormControl('')
   })
-  idPers:any = '';
+  idPers: any = '';
 
-  constructor(private integration:IntegrationService) { }
+  constructor(private integration: IntegrationService) { }
 
   ngOnInit(): void {
     this.getPerson();
   }
 
   public getPerson() {
-    this.integration.getPerson().subscribe(res=> {
-      const  {id_person, name, lastName, age, profession, origin, presentation, professional_photo } = res
+    this.integration.getPerson().subscribe(res => {
+      const { id_person, name, lastName, age, profession, origin, presentation, professional_photo } = res
       this.idPers = id_person;
-      this.person=res;
+      this.person = res;
     }, error => {
       console.log("FormPresentation: " + error)
     })

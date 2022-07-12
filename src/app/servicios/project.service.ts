@@ -27,15 +27,16 @@ public addProject(proy:Project):Observable<Project>{
 //}
 
 public deleteProject(idProj:number){
-    return this.http.delete<Project>(this.url+"/project/delete/1/"+`${idProj}`)
+    return this.http.delete<Project>(this.url+`/project/delete/1/${idProj}`)
 }
 
 public getProject(id:number){
-    return this.http.get<Project>(this.url+"/project/find/"+`${id}`)
+    return this.http.get<Project>(this.url+`/project/find/${id}`)
 }
 
 public updateProject(id:number, proy:Project){
-    return this.http.put(this.url+'/project/'+`${id}`, proy)
+    return this.http.put(this.url+`/project/${id}`, proy)
 }
+
 
 }

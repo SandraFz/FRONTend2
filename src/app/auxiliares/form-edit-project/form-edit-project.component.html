@@ -12,7 +12,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form [formGroup]="formEditProy">
                     <div class="form-group">
 
                         <!--Cambiar url-->
@@ -44,7 +44,7 @@
                             placeholder="link del logo del projecto" [(ngModel)]="project.link_project" required>
                             <div class="modal-footer">
                                 <!--<button type="button" class="btn btn-try">Probar</button>-->
-                                <button type="button" class="btn btn-save" >Guardar</button>
+                                <button type="button" class="btn btn-save" (click)="getProject(project.id_project)">Guardar</button>
                                 <!--(click)="updatePerson()"-->
                                 <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
                             </div>

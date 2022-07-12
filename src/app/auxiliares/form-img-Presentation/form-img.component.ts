@@ -2,7 +2,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Person } from 'src/app/model/person';
+import { Person } from 'src/app/model/Person';
 import { IntegrationService } from 'src/app/servicios/integration.service';
 
 @Component({

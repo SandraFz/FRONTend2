@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/model/Project';
 import { ProjectService } from 'src/app/servicios/project.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-projects',
@@ -11,7 +12,17 @@ export class ProjectsComponent implements OnInit {
 
   projects:Project[] = [];
   project!:Project;
-  id?:number=1;
+  id?:number;
+
+  formEditProy = new FormGroup({
+    id_project: new FormControl(''),
+    name_project: new FormControl(''),
+    principal: new FormControl('true'),
+    img_proy: new FormControl(''),
+    logo_img: new FormControl(''),
+    lingk_project: new FormControl(''),
+    person: new FormControl(''),
+  })
 
   
 
@@ -45,5 +56,35 @@ export class ProjectsComponent implements OnInit {
       console.log(error)
     })
   }
+
+  public getProjectById(id: number) {
+    this.servicio.getProject(id).subscribe(res => {
+      const {id_project, name_project,principal, description, img_proy, logo_img, link_project, person} = res;
+      this.formEditProy.setValue({name_project, principal, description, img_proy, link_project})
+      console.log(res)
+    }, error => {
+      console.log(error)
+    })
+  }
+
+  public getProject1(id:number){
+    this.servicio.getProject(id).subscribe(res=>{
+      const {id_project, name_project,principal, description, img_proy, logo_img, link_project, person} = res;
+      this.formEditProy.setValue({name_project, principal, description, img_proy, logo_img, link_project})
+      this.id=id;
+    })
+  }
+
+  public editProject(){
+    let proy = this.formEditProy.value
+    proy.id_project = this.id
+    this.servicio.updateProject(proy.id_project, proy).subscribe(res=>{
+      console.log(res)
+    }, error => {
+      console.error(error)
+    })
+  }
+    
+  
 
 }
