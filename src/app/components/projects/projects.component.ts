@@ -51,7 +51,7 @@ export class ProjectsComponent implements OnInit {
 
   public deleteProject(idElem:number){
     this.servicio.deleteProject(idElem).subscribe(()=>{
-
+      window.location.reload();
     }, error => {
       console.log(error)
     })
