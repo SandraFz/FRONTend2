@@ -18,6 +18,7 @@ import { ButtonAddComponent } from './auxiliares/button-add/button-add.component
 import { FormProyAddComponent } from './auxiliares/form-proy-add/form-proy-add.component';
 import { ButtonDeleteComponent } from './auxiliares/button-delete/button-delete.component';
 import { EditProjectComponent } from './auxiliares/form-edit-project/form-edit-project.component';
+import { ExperienceComponent } from './experience/experience.component';
 
 
 
@@ -37,6 +38,7 @@ import { EditProjectComponent } from './auxiliares/form-edit-project/form-edit-p
     FormProyAddComponent,
     ButtonDeleteComponent,
     EditProjectComponent,
+    ExperienceComponent,
   ],
   imports: [
     BrowserModule,

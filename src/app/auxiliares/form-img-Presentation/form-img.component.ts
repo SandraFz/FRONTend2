@@ -2,7 +2,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Person } from 'src/app/model/Person';
+import { Person } from '../../model/person';
 import { IntegrationService } from 'src/app/servicios/integration.service';
 
 @Component({
@@ -55,7 +55,7 @@ export class FormImgComponent implements OnInit {
     }, error=>{
       console.log("Error al ejecutar getPerson()")
     } )
-  }*/
+  }
 
  /* public showImg(elementId: string):HTMLElement {
     document.getElementById(elementId)?.getAttribute =this.formImg.value;

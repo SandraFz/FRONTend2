@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRouteSnapshot } from '@angular/router';
 
-import { Person } from 'src/app/model/Person';
+import { Person } from '../../model/person';
 import { IntegrationService } from 'src/app/servicios/integration.service';
 
 @Component({

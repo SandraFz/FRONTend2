@@ -1,83 +1,84 @@
 <article class="component-container">
-   
+
     <div class="title">
         <h2>Mis proyectos en proceso</h2>
     </div>
-    
+
+    <!--Boton y formulario agregar-->
     <div class="button">
         <app-button-add data-toggle="modal" data-target="#add_proy"></app-button-add>
         <app-form-proy-add class="modal" id="add_proy" arie-hidden="true"></app-form-proy-add>
-   </div>
-   
-    
+    </div>
     <br>
+
     <div class="flex">
         <div *ngFor="let project of projects" class="ngPrincipal sub_project">
-            
-            <div class="button"><app-button-edit data-toggle="modal" data-target="#edit_proy" (click)="getProjectById(project.id_project)"></app-button-edit><app-button-delete (click)="deleteProject(project.id_project)"></app-button-delete>
-                <!--Formulario de prueba-->
-    <div  id="edit_proy" class="modal modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Editar projecto</h5>
 
-
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form [formGroup]="formEditProy">
-                    <div class="form-group">
-
-                        <!--Cambiar url-->
-                        <div class="fondo">
-                            <img id="imagen-proy" [src]="project.img_proy" alt="Aqui se carga la imagen" />
-                        </div>
-
-
-
-                        <label for="">Inserte la url de la nueva imagen</label>
-                        <input type="text" id="url_imagen" formControlName="img_proy"
-                            onchange="document.getElementById('imagen-proy').src=this.value;" [(ngModel)]="project.img_proy" required />
-
-                        <div>
-                            <!--class="form-group"-->
-                            <label for="exampleFormControlTextarea1">Nueva descripción</label>
-                            <textarea formControlName="description" class="form-control"
-                                id="exampleFormControlTextarea1" rows="5" [(ngModel)]="project.description" required></textarea>
-                        </div>
-                        <!--
-                <input type="text" formControlName="id_project" class="form-control" placeholder="id_project" required>-->
-                        <input type="text" formControlName="name_project" class="form-control"                         placeholder="nombre del poyecto" [(ngModel)]="project.name_project" required>
-                        <label for="principal">¿Es el proyecto principal?
-                            <input type="text" formControlName="principal" class="form-control" value="true"
-                                [(ngModel)]="project.principal"></label>
-                        <input type="text" formControlName="link_project" class="form-control"
-                            placeholder="link al proyecto" required>
-                        <input type="text" formControlName="logo_project" class="form-control"
-                            placeholder="link del logo del projecto" [(ngModel)]="project.link_project" required>
-                            <div class="modal-footer">
-                                <!--<button type="button" class="btn btn-try">Probar</button>-->
-                                <button type="button" class="btn btn-save" (click)="editProject()">Guardar</button>
-                                <!--(click)="updatePerson()"-->
-                                <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
-                            </div>
-
-                    </div>
-
-                </form>
-            </div>
-
-        </div>
-    </div><!--Termina el formulario de prueba-->
-            </div>
-            <!--<app-edit-project class="modal" id="edit_proy"></app-edit-project>-->
             <div class="card principal-card" *ngIf="project.principal===true">
-                            
+
+                <!--Botones y formulario edit y delete-->
+                <div class="button">
+                    <app-button-edit data-toggle="modal" data-target="#edit_proy"
+                        (click)="getProjectById2(this.project.id_project)"></app-button-edit>
+                    <app-button-delete (click)="deleteProject(project.id_project)"></app-button-delete>
+
+                    <!--Formulario Editar Projecto"-->
+                    <div class="modal" id="edit_proy">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Editar projecto</h5>
+
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                        (click)="clear()">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form [formGroup]="formEditProy">
+                                        <div class="form-group">
+
+                                            <label for="name_project"></label>
+                                            <input class="form-control" formControlName="name_project"
+                                                placeholder="nombre del poyecto" >
+
+                                            <label for="exampleFormControlTextarea1">Nueva descripción</label>
+                                            <textarea class="form-control" formControlName="description" rows="5"
+                                                >
+                                            </textarea>
+
+                                            <label for="principal">¿Es el proyecto principal?</label>
+                                            <input class="form-control" formControlName="principal" value="true"
+                                                >
+
+                                            <label for="form-control">Inserte la url de la nueva imagen</label>
+                                            <input class="form-control" formControlName="img_proy"
+                                                placeholder="Inserte la url de la imagen del proyecto."
+                                                >
+
+                                            <label for="link_project"></label>
+                                            <input class="form-control" formControlName="link_project"
+                                                placeholder="Inserte el link al proyecto."
+                                                >
+
+                                            <div class="modal-footer">
+
+                                                <button type="button" class="btn btn-save"
+                                                    (click)="editProject()">Guardar</button>
+                                                <button type="button" class="btn btn-close" data-dismiss="modal"
+                                                    (click)="clear()">Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Fin del formulario-->
+                </div>
+
                 <div class="objetfitcover">
-                    
+
                     <img [src]="project.img_proy" class="card-img-top" alt="...">
                 </div>
 
@@ -89,32 +90,159 @@
         </div>
         <div class="other_proy sub_project">
             <div class="ngForOther" *ngFor="let project of projects">
-                
-                <div class="cardOthers" *ngIf="project.principal===false">
-                    
+
+
+
+                <div class="cardOthers" *ngIf="project.principal === false">
+
+
                     <div class="card option1">
 
-                        <div class="button"><app-button-delete (click)="deleteProject(project.id_project)"></app-button-delete></div>
+                        <!--Botones y formulario edit y delete-->
+                        <div class="button">
+                            <app-button-edit data-toggle="modal" data-target="#edit_proy1"
+                                (click)="getProjectById2(this.project.id_project)"></app-button-edit>
+                            <app-button-delete (click)="deleteProject(project.id_project)"></app-button-delete>
+
+                            <!--Formulario Editar Projecto"-->
+                            <div class="modal" id="edit_proy1">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Editar projecto</h5>
+
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                                (click)="clear()">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form [formGroup]="formEditProy2">
+                                                <div class="form-group">
+
+                                                    <label for="name_project"></label>
+                                                    <input class="form-control" formControlName="name_project"
+                                                        placeholder="nombre del poyecto"
+                                                        ngModel="{{project.name_project}}">
+
+                                                    <label for="exampleFormControlTextarea1">Nueva descripción</label>
+                                                    <textarea class="form-control" formControlName="description"
+                                                        rows="5" [ngModel]="project.description">
+                                    </textarea>
+
+                                                    <label for="principal">¿Es el proyecto principal?</label>
+                                                    <input class="form-control" formControlName="principal" value="true"
+                                                        [ngModel]="project.principal">
+
+                                                    <label for="form-control">Inserte la url de la nueva imagen</label>
+                                                    <input class="form-control" formControlName="img_proy"
+                                                        placeholder="Inserte la url de la imagen del proyecto."
+                                                        [ngModel]="project.img_proy">
+
+                                                    <label for="link_project"></label>
+                                                    <input class="form-control" formControlName="link_project"
+                                                        placeholder="Inserte el link al proyecto."
+                                                        [ngModel]="project.link_project">
+
+                                                    <div class="modal-footer">
+
+                                                        <button type="button" class="btn btn-save"
+                                                            (click)="editProject()">Guardar</button>
+                                                        <button type="button" class="btn btn-close" data-dismiss="modal"
+                                                            (click)="clear()">Cerrar</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin del formulario-->
+                        </div>
+
+
+
                         <img [src]="project.img_proy" class="card-img" alt="...">
                         <div class="card-img-overlay">
-                           
+
                             <p class="card-text"><strong>{{project.name_project}}</strong> - {{project.description}}</p>
                         </div>
                     </div>
-                    
+
                     <div class="card option2">
-                        <div class="button"><app-button-delete (click)="deleteProject(project.id_project)"></app-button-delete></div>
-                        
+
+                        <!--Botones y formulario edit y delete-->
+                        <div class="button">
+                            <app-button-edit data-toggle="modal" data-target="#edit_proy"
+                                (click)="getProjectById2(this.project.id_project)"></app-button-edit>
+                            <app-button-delete (click)="deleteProject(project.id_project)"></app-button-delete>
+
+                            <!--Formulario Editar Projecto"-->
+                            <!--<div class="modal" id="edit_proy">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Editar projecto</h5>
+
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="clear()">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form [formGroup]="formEditProy">
+                                                <div class="form-group">
+
+                                                    <label for="name_project"></label>
+                                                    <input class="form-control" formControlName="name_project"
+                                                        placeholder="nombre del poyecto"
+                                                        [ngModel]="project.name_project">
+
+                                                    <label for="exampleFormControlTextarea1">Nueva descripción</label>
+                                                    <textarea class="form-control" formControlName="description"
+                                                        rows="5" [ngModel]="project.description">
+                                            </textarea>
+
+                                                    <label for="principal">¿Es el proyecto principal?</label>
+                                                    <input class="form-control" formControlName="principal" value="true"
+                                                        [ngModel]="project.principal">
+
+                                                    <label for="form-control">Inserte la url de la nueva imagen</label>
+                                                    <input class="form-control" formControlName="img_proy"
+                                                        placeholder="Inserte la url de la imagen del proyecto."
+                                                        [ngModel]="project.img_proy">
+
+                                                    <label for="link_project"></label>
+                                                    <input class="form-control" formControlName="link_project"
+                                                        placeholder="Inserte el link al proyecto."
+                                                        [ngModel]="project.link_project">
+
+                                                    <div class="modal-footer">
+
+                                                        <button type="button" class="btn btn-save"
+                                                            (click)="editProject()">Guardar</button>
+                                                        <button type="button" class="btn btn-close" data-dismiss="modal"
+                                                            (click)="clear()">Cerrar</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <!--Fin del formulario-->
+                        </div>
+
+
                         <img [src]="project.img_proy" class="card-img-top" alt="...">
                         <div class="card-body">
-                          <h5 class="card-title2">{{project.name_project}}</h5>
+                            <h5 class="card-title2">{{project.name_project}}</h5>
                             <p class="card-text2">{{project.description}}</p>
-                        
+
                         </div>
-                      </div>
-                     
-                    
-                    
+                    </div>
+
+
+
                 </div>
             </div>
         </div>

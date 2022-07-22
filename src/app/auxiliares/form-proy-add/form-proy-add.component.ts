@@ -84,21 +84,34 @@ export class FormProyAddComponent implements OnInit {
     });
   }*/
 
+
+  public addProjectX(){
+    this.servicio.addProject(this.formProject.value).subscribe({
+      next: (res) => {
+        console.log(res);
+        window.location.reload();
+        alert("Registro exitoso!");
+      }
+    })
+  }
+
   public addProject1(){
-    this.servicio.addProject(this.formProject.value).subscribe(res => {
+    this.servicio.addProject(this.formProject.value).subscribe( res =>{
       
      //this.proy.push(res)
       console.log(res);
-      this.formProject.reset('')
+      window.location.reload();
+      alert("Projecto agregado")
     }, error => {
       console.error(error);
-    })
+    });
   }
 
   public addProject3(){
     let project = this.formProject.value
     this.servicio.addProject(project).subscribe((res)=> {
       this.proy.push(res)
+      window.location.reload()
     }, error => {
       console.error(error)
     })

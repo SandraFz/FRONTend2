@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable, Output } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 import { environment } from "src/environments/environment";
@@ -9,6 +9,8 @@ import { IntegrationService } from "./integration.service";
 @Injectable({providedIn:'root'})
 export class ProjectService {
 
+    @Output() open: EventEmitter <number> =new EventEmitter();
+    
     url:string = environment.baseUrl;
     idPers:number = 1;
 
@@ -35,8 +37,17 @@ public getProject(id:number){
 }
 
 public updateProject(id:number, proy:Project){
-    return this.http.put(this.url+`/project/${id}`, proy)
+    return this.http.put<any>(this.url+'/project/edit/'+ `${id}`, proy)
 }
 
 
+}
+
+export interface Proyecto{
+    id_project:string;
+    name_project:string;
+    principal:boolean;
+    img_proy:string;
+    logo_img:string;
+    link_project:string;
 }
