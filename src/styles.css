@@ -67,7 +67,7 @@ body.container-fluid {
 
 /*Textos*/
 p {
-
+    font-family: var(--simple-text);
     font-size: 12px;
 }
 
@@ -75,6 +75,17 @@ h6 {
     font-style: var(--simple-text);
    
 }
+
+h2, h5 {
+    font-family: var(--simple-text);
+}
+
+.title{
+    display:flex;
+    width: 100%;
+    justify-content: center;
+    /*background-color: blueviolet;*/
+ }
 
 ul {
     list-style: none;

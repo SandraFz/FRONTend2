@@ -18,30 +18,17 @@ export class ProjectsComponent implements OnInit {
   project!:Project;
   idProy!:number;
   proyToEdit!:number;
+  formEditProy:FormGroup;
+  formEditProy2!:FormGroup;
  // proyActual: Project={id_project: this.project.id_project, name_project:'',finalizado:false};
 
-  formEditProy = new FormGroup({
-    name_project: new FormControl(''),
-    description: new FormControl(''),
-    principal: new FormControl(''),
-    img_proy: new FormControl(''),
-    logo_img: new FormControl(''),
-    link_project: new FormControl(''),
-    person: new FormControl(''),
-  })
+  
 
-  formEditProy2 = new FormGroup({
-    name_project: new FormControl(''),
-    description: new FormControl(''),
-    principal: new FormControl(''),
-    img_proy: new FormControl(''),
-    logo_img: new FormControl(''),
-    link_project: new FormControl(''),
-    person: new FormControl(''),
-  })
+  
 
   formEditProy1:FormGroup = this.fb.group({
     name_project: new FormControl(''),
+    description: new FormControl(''),
     principal: new FormControl(''),
     img_proy: new FormControl(''),
     logo_img: new FormControl(''),
@@ -50,11 +37,35 @@ export class ProjectsComponent implements OnInit {
 
   
 
-  constructor(private servicio:ProjectService, private fb:FormBuilder) { }
+  constructor(private servicio:ProjectService, private fb:FormBuilder) { 
+
+    this.formEditProy2 = new FormGroup({
+      name_project: new FormControl(),
+      description: new FormControl(),
+      principal: new FormControl(),
+      img_proy: new FormControl(),
+      logo_img: new FormControl(),
+      link_project: new FormControl(),
+      
+    })
+    
+    
+    this.formEditProy = new FormGroup({
+      name_project: new FormControl(),
+      description: new FormControl(),
+      principal: new FormControl(),
+      img_proy: new FormControl(),
+      logo_img: new FormControl(),
+      link_project: new FormControl(),
+      person: new FormControl(),
+    });
+  }
 
   ngOnInit(): void {
     this.projectList();
     this.getProjectById(this.project.id_project);
+
+    
   }
 
   public projectList(){
@@ -188,8 +199,7 @@ export class ProjectsComponent implements OnInit {
 
   public clear(){
     
-
-    //this.formEditProy.reset()
+    this.formEditProy.reset()
     
   }
     

@@ -1,0 +1,46 @@
+<div>
+    <!--[formGroup]="Agregar proyecto"-->
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar experiencia</h5>
+
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formExperience">
+                    <div class="form-group">
+
+                        <label for="">Empresa:</label>
+                        <input type="text" formControlName="company" class="form-control">
+
+                        <label for="asignament">Funciones:</label>
+                        <input formControlName="asignament" class="form-control">
+
+                        <label for="anio_salida">Año de salida</label>
+                        <input type="text" formControlName="anio_salida" class="form-control"
+                            placeholder="">
+
+                        <label for="duracion">Duración:</label>
+                        <input type="text" formControlName="duracion" class="form-control" value="true">
+
+                        <label for="link_experience"></label>
+                        <input type="text" formControlName="link_experience" class="form-control"
+                            placeholder="Página de la empresa">
+
+                        <div class="modal-footer">
+                            <button type="button submit" class="btn btn-save" (click)="addExperience()">Guardar</button>
+                            <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

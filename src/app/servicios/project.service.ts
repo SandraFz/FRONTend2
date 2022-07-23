@@ -20,34 +20,26 @@ export class ProjectService {
         return this.http.get<Project[]>(this.url+'/project/list/'+this.idPers);
     }
 
-public addProject(proy:Project):Observable<Project>{
+    public addProject(proy:Project):Observable<Project>{
         return this.http.post<Project>(this.url+"/project/new/"+this.idPers, proy);
     }
 
-   //public addProject(proy:Project):Observable<Project>{
-    //return this.http.post<Project>(this.url+"/project/new/"+ this.idPers, proy);
-//}
 
-public deleteProject(idProj:number){
-    return this.http.delete<Project>(this.url+`/project/delete/1/${idProj}`)
-}
+    public deleteProject(idProj:number){
+    return this.http.delete<Project>
+    (this.url+"/project/delete/"+this.idPers+`/${idProj}`)
+    }
 
-public getProject(id:number){
-    return this.http.get<Project>(this.url+`/project/find/${id}`)
-}
+    public getProject(id:number):Observable<Project>{
+        return this.http.get<Project>(this.url+`/project/find/${id}`)
+    }
 
-public updateProject(id:number, proy:Project){
-    return this.http.put<any>(this.url+'/project/edit/'+ `${id}`, proy)
-}
+    public updateProject(id:number, proy:Project){
+        return this.http.put<any>
+        (this.url+'/project/edit/'+`${id}`, proy)
+    }
 
 
-}
+    }
 
-export interface Proyecto{
-    id_project:string;
-    name_project:string;
-    principal:boolean;
-    img_proy:string;
-    logo_img:string;
-    link_project:string;
-}
+    

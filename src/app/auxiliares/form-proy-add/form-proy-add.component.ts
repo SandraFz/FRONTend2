@@ -13,11 +13,13 @@ import { IntegrationService } from '../../servicios/integration.service';
   styleUrls: ['./form-proy-add.component.css']
 })
 export class FormProyAddComponent implements OnInit {
-  proy:ProjectClass[] = []
-  projects:Project[] = [];
+
+  //proy:ProjectClass[] = []
+  proy:Project[] = [];
   project!:Project;
+  //idPers=1;
+  //idProy:any="";
   formProject = new FormGroup ({
-   //id_project: new FormControl,
     name_project: new FormControl(''),
     principal: new FormControl('true'),
     description: new FormControl(''),
@@ -25,28 +27,16 @@ export class FormProyAddComponent implements OnInit {
     logo_img: new FormControl(''),
     link_project: new FormControl(''),
   })
-  
-
-  idPers=1;
-  idProy:any="";
 
   constructor(private integration:IntegrationService, private servicio:ProjectService, private formBuilder:FormBuilder) {  }
 
   ngOnInit(): void {
-    this.projectList();
-    /*
-  newProjectForm = this.formBuilder.group({
-    id_project: [''],
-    name_project: [''],
-    principal: [''] ,
-    description: [''],
-    img_proy: [''],
-    logo_img: [''],
-    link_project: [''],
-  })
-  */
-    
+    //this.projectList();
   }
+
+   //Recordar habilitar lo de abajo si no funciona de nuevo.
+
+/*
 
   public projectList(){
     
@@ -57,6 +47,8 @@ export class FormProyAddComponent implements OnInit {
       console.log("projectsComponent: " + error);})
   }
 
+ 
+
   onSubmit(){
     this.formProject.controls['name_project'].setValue(this.project.name_project);
     this.formProject.controls['principal'].setValue(this.project.principal);
@@ -65,26 +57,8 @@ export class FormProyAddComponent implements OnInit {
     this.formProject.controls['name_project'].setValue(this.project.logo_img);
     this.formProject.controls['link_project'].setValue(this.project.link_project);
   }
-/*
-  public addProject(){
-    console.log(this.formProject.value);
-    this.servicio.addProject(this.idPers, this.formProject.value).subscribe(res => {
-      console.log(res);
-      this.formProject.reset
-    }, error => {
-      console.error(error);
-    })
-  }*/
-/*
-  public addProject2(){
-    
-    this.servicio.addProject(this.idPers, this.formProject.value).subscribe(()=>{
-    }, error => {
-      console.log("updatePerson: " + error)
-    });
-  }*/
 
-
+  
   public addProjectX(){
     this.servicio.addProject(this.formProject.value).subscribe({
       next: (res) => {
@@ -105,7 +79,7 @@ export class FormProyAddComponent implements OnInit {
     }, error => {
       console.error(error);
     });
-  }
+  }*/
 
   public addProject3(){
     let project = this.formProject.value

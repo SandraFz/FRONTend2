@@ -19,29 +19,29 @@
 
 
                         <label for="">Inserte la url de la nueva imagen</label>
-                        <input [(ngModel)]="project.img_proy" type="text" id="url_imagen" formControlName="img_proy" value="">
+                        <input type="text" id="url_imagen" formControlName="img_proy" value="">
 
 
                         <!--class="form-group"-->
                         <label for="exampleFormControlTextarea1">Nueva descripción</label>
-                        <textarea [(ngModel)]="project.description" formControlName="description" class="form-control" id="exampleFormControlTextarea1"
+                        <textarea formControlName="description" class="form-control" id="exampleFormControlTextarea1"
                             rows="5"></textarea>
 
                         <!--
                 <input type="text" formControlName="id_project" class="form-control" placeholder="id_project" required>-->
                         <label for="name_project"></label>
-                        <input [(ngModel)]="project.name_project" type="text" formControlName="name_project" class="form-control"
+                        <input  type="text" formControlName="name_project" class="form-control"
                             placeholder="nombre del poyecto">
 
                         <label for="principal">¿Es el proyecto principal?</label>
-                            <input [(ngModel)]="project.principal" type="text" formControlName="principal" class="form-control" value="true">
+                            <input type="text" formControlName="principal" class="form-control" value="true">
 
                         <label for="link_project"></label>
-                        <input [(ngModel)]="project.link_project" type="text" formControlName="link_project" class="form-control"
+                        <input type="text" formControlName="link_project" class="form-control"
                             placeholder="link al proyecto">
 
                         <label for="logo_project"></label>
-                        <input [(ngModel)]="project.logo_img" type="text" formControlName="logo_project" class="form-control"
+                        <input  type="text" formControlName="logo_project" class="form-control"
                             placeholder="link del logo del projecto">
 
                         <div class="modal-footer">

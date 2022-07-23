@@ -1,0 +1,48 @@
+<div class="component-container">
+
+  <div class="title">
+    <h2 class="my-1">Última experiencia</h2>
+  </div>
+
+  <div class="button">
+    <app-button-add data-toggle="modal" data-target="#add_exp"></app-button-add>
+    <app-form-add-experience class="modal" id="add_exp" arie-hidden="true"></app-form-add-experience>
+</div>
+
+  <div *ngFor="let experience of experiences">
+    
+    <hr class="mb-3" />
+    
+    <div class="button">
+      <app-button-delete (click)="deleteExperience(experience.id)"></app-button-delete>
+    </div>
+  
+      <p><a [href]="experience.link_experience" target="_blank">{{experience.company}}</a> - {{experience.asignament}} - {{experience.duracion}} - hasta {{experience.anio_salida}}.</p>
+  
+      <div id="carouselExample1" class="carousel slide z-depth-1-half" data-ride="carousel">
+        <div class="carousel-inner">
+          
+          <div class="carousel-item" *ngFor="let img of images; index as i" [ngClass]="{'active': i == 0 }">
+            
+            <img class="d-block w-100" [src]="img.imgLink" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+              <p class="card-text">{{img.softSkill}}</p>
+            </div>
+          </div>
+        
+        </div>
+        <a class="carousel-control-prev" href="#carouselExample1" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExample1" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+  </div>
+  
+  
+  </div>
+  

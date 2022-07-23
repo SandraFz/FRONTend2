@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { Project } from 'src/app/model/Project';
-import { ProjectService, Proyecto } from '../../servicios/project.service';
+import { ProjectService } from '../../servicios/project.service';
 import { ProjectsComponent } from 'src/app/components/projects/projects.component';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 
@@ -14,14 +14,14 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 export class EditProjectComponent implements OnInit {
 
   idRouter!:number;
-  actualProy: Proyecto={
+  /*actualProy: Project={
     id_project:'',
     name_project:'',
     principal:true,
     img_proy:'',
     logo_img:'',
     link_project:'',
-  }
+  }*/
 
 
   idProy!:number;

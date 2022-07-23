@@ -1,9 +1,9 @@
 <div>
-    <!--[formGroup]="Agregar proyecto"-->
+
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Agregar projecto</h5>
+                <h5 class="modal-title">Agregar proyecto</h5>
 
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -14,30 +14,21 @@
                 <form [formGroup]="formProject">
                     <div class="form-group">
 
-                        <!--Cambiar url-->
-
-
-
-
                         <label for="">Inserte la url de la nueva imagen</label>
-                        <input type="text" id="url_imagen" formControlName="img_proy"/>
+                        <input type="text" id="url_imagen" formControlName="img_proy" />
 
-                        
-                            <!--class="form-group"-->
-                            <label for="exampleFormControlTextarea1">Nueva descripción</label>
-                            <textarea formControlName="description" class="form-control"
-                                id="exampleFormControlTextarea1" rows="5"></textarea>
-                        
-                        <!--
-                <input type="text" formControlName="id_project" class="form-control" placeholder="id_project" required>-->
+                        <label for="exampleFormControlTextarea1">Nueva descripción</label>
+                        <textarea formControlName="description" class="form-control" id="exampleFormControlTextarea1"
+                            rows="5"></textarea>
+
                         <label for="name_project"> Nombre del proyecto</label>
-                            <input type="text" formControlName="name_project" class="form-control"
-                                placeholder="nombre del poyecto">
-                       
+                        <input type="text" formControlName="name_project" class="form-control"
+                            placeholder="nombre del poyecto">
+
 
                         <label for="principal">¿Es el proyecto principal?</label>
-                            <input type="text" formControlName="principal" class="form-control" value="true">
-                        
+                        <input type="text" formControlName="principal" class="form-control" value="true">
+
                         <label for="link_project"></label>
                         <input type="text" formControlName="link_project" class="form-control"
                             placeholder="link al proyecto">
@@ -47,9 +38,7 @@
                             placeholder="link del logo del projecto">
 
                         <div class="modal-footer">
-                            <!--<button type="button" class="btn btn-try">Probar</button>-->
                             <button type="button submit" class="btn btn-save" (click)="addProject3()">Guardar</button>
-                            <!--(click)="updatePerson()"-->
                             <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
                         </div>
 
