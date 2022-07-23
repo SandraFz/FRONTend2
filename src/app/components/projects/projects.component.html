@@ -36,10 +36,10 @@
                                 </div>
                                 <div class="modal-body">
                                     <form >
-                                        <div class="form-group" [formGroup]="formEditProy2">
+                                        <div class="form-group" [formGroup]="formEditProy2"><!---->
 
                                             <label for="name_project"></label>
-                                            <input class="form-control" name="name_project" [value]="this.project.name_project"
+                                            <input class="form-control" name="name_project" ngModel
                                                 placeholder="nombre del poyecto" ><!--formControlName="name_project"-->
 
                                             <label for="exampleFormControlTextarea1">Nueva descripción</label>

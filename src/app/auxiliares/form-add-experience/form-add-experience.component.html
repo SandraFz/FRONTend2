@@ -31,6 +31,15 @@
                         <input type="text" formControlName="link_experience" class="form-control"
                             placeholder="Página de la empresa">
 
+                            <form [formGroup]="formImgExperience">
+                            <label for="imgLink">Imagen:</label>
+                            <input type="text" formControlName="imgLink" class="form-control">
+
+                            <label for="softSkill">Comentario</label>
+                            <input type="text" formControlName="softSkill" class="form-control">
+
+                            </form>
+                            
                         <div class="modal-footer">
                             <button type="button submit" class="btn btn-save" (click)="addExperience()">Guardar</button>
                             <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>

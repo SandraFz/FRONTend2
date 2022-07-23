@@ -1,0 +1,34 @@
+<div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar experiencia</h5>
+
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formImgExperience">
+                    <div class="form-group">
+
+                        <label for="link_experience">Enlace:</label>
+                        <input type="text" formControlName="link_experience" class="form-control">
+
+                        <label for="softSkill">Comentario:</label>
+                        <input formControlName="softSkill" class="form-control">
+
+                        <div class="modal-footer">
+                            <button type="button submit" class="btn btn-save" >Guardar</button>
+                            <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

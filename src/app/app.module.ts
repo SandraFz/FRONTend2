@@ -18,8 +18,9 @@ import { ButtonAddComponent } from './auxiliares/button-add/button-add.component
 import { FormProyAddComponent } from './auxiliares/form-proy-add/form-proy-add.component';
 import { ButtonDeleteComponent } from './auxiliares/button-delete/button-delete.component';
 import { EditProjectComponent } from './auxiliares/form-edit-project/form-edit-project.component';
-import { ExperienceComponent } from './components/experience/experience.component';
+import { ExperienceComponent } from './components/experience/experience.component'; 
 import { FormAddExperienceComponent } from './auxiliares/form-add-experience/form-add-experience.component';
+import { FormAddImgExperienceComponent } from './auxiliares/form-add-img-experience/form-add-img-experience.component';
 
 
 
@@ -41,13 +42,14 @@ import { FormAddExperienceComponent } from './auxiliares/form-add-experience/for
     EditProjectComponent,
     ExperienceComponent,
     FormAddExperienceComponent,
+    FormAddImgExperienceComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

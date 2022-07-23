@@ -31,6 +31,7 @@ export class ExperienceComponent implements OnInit {
       duracion:[''],
       logo_experience:[''],
       link_experience:[''],
+      
     })
   }
 
@@ -44,12 +45,22 @@ export class ExperienceComponent implements OnInit {
     this.expService.experienceList().subscribe(res=> {
       console.log(res)
       this.experiences = res;
-      
       let [{id, company, asignament, anio_salida, duracion, logo_experience, link_experience, person}] = res
       this.idExp = id;
       this.imgExpList(this.idExp)
     }, error => {
       console.log(error);
+    })
+  }
+
+  getExperienceById(id:number){
+    this.expService.getExperience(id).subscribe(res => {
+      console.log(res)
+      this.experience = res
+      //const {id, company, asignament, anio_salida, duracion, logo_experience, link_experience} = res
+      //this.idExp = id;
+      console.log(res.id)
+      //this.imgExpList(this.idExp)
     })
   }
   
@@ -89,6 +100,11 @@ export class ExperienceComponent implements OnInit {
     }, error => {
       console.log(error)
     })
+  }
+
+  //Métodos mixtos
+  public getExperienceAndImg(id:number){
+
   }
 
 }
