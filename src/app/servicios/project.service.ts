@@ -36,7 +36,7 @@ export class ProjectService {
 
     public updateProject(id:number, proy:Project){
         return this.http.put<any>
-        (this.url+'/project/edit/'+`${id}`, proy)
+        (this.url+`/project/edit/${id}`, proy)
     }
 
 

@@ -17,27 +17,47 @@ export class ProjectsComponent implements OnInit {
   projects:Project[] = [];
   project!:Project;
   idProy!:number;
-  proyToEdit!:number;
-  formEditProy:FormGroup;
+  //proyToEdit!:number;
+  //formEditProy:FormGroup;
   formEditProy2!:FormGroup;
+  formEditProy1:any;
  // proyActual: Project={id_project: this.project.id_project, name_project:'',finalizado:false};
 
-  
+  formEditWithInterface = {
+    name_project:'',
+    description:'',
+    principal:'',
+    img_proy:'',
+    logo_proy:'',
+    link_project:'',
+  }
 
-  
+  formEditProy:FormGroup = new FormGroup({
+    id_project: new FormControl(),
+    name_project: new FormControl(),
+    description: new FormControl(),
+    principal: new FormControl(),
+    img_proy: new FormControl(),
+    logo_img: new FormControl(),
+    link_project: new FormControl(),
+    person: new FormControl(),
+  });
 
-  formEditProy1:FormGroup = this.fb.group({
-    name_project: new FormControl(''),
-    description: new FormControl(''),
-    principal: new FormControl(''),
-    img_proy: new FormControl(''),
-    logo_img: new FormControl(''),
-    link_project: new FormControl(''),
-  })
+ 
 
   
 
   constructor(private servicio:ProjectService, private fb:FormBuilder) { 
+
+    this.formEditProy1 = this.fb.group({
+      id_project: new FormControl(''),
+      name_project: new FormControl(''),
+      description: new FormControl(''),
+      principal: new FormControl(''),
+      img_proy: new FormControl(''),
+      logo_img: new FormControl(''),
+      link_project: new FormControl(''),
+    })
 
     this.formEditProy2 = new FormGroup({
       name_project: new FormControl(),
@@ -50,20 +70,12 @@ export class ProjectsComponent implements OnInit {
     })
     
     
-    this.formEditProy = new FormGroup({
-      name_project: new FormControl(),
-      description: new FormControl(),
-      principal: new FormControl(),
-      img_proy: new FormControl(),
-      logo_img: new FormControl(),
-      link_project: new FormControl(),
-      person: new FormControl(),
-    });
+    
   }
 
   ngOnInit(): void {
     this.projectList();
-    this.getProjectById(this.project.id_project);
+    //this.getProjectById(this.project.id_project);
 
     
   }
@@ -118,8 +130,10 @@ export class ProjectsComponent implements OnInit {
 
   public getProjectById(id: number) {
     this.servicio.getProject(id).subscribe(res => {
+      console.log("getById arroja:")
       console.log(res)
       this.project = res
+      this.formEditProy1.controls['id_project'].setValue(this.project.id_project);
       this.formEditProy1.controls['name_project'].setValue(this.project.name_project);
       this.formEditProy1.controls['principal'].setValue(this.project.principal);
       this.formEditProy1.controls['description'].setValue(this.project.description);
@@ -133,18 +147,33 @@ export class ProjectsComponent implements OnInit {
     
   } 
 
+  getAndPut(project: Project) {
+    console.log(project);
+    this.formEditProy1.controls['id_project'].setValue(project.id_project);
+    this.formEditProy1.controls['name_project'].setValue(project.name_project);
+    this.formEditProy1.controls['principal'].setValue(project.principal);
+    this.formEditProy1.controls['description'].setValue(project.description);
+    this.formEditProy1.controls['img_proy'].setValue(project.img_proy);
+    this.formEditProy1.controls['logo_img'].setValue(project.logo_img);
+    this.formEditProy1.controls['link_project'].setValue(project.link_project);
+    /*this.miFormulario.controls['id'].setValue(habilidad.id);
+    this.miFormulario.controls['name'].setValue(habilidad.name);
+    this.miFormulario.controls['percentage'].setValue(habilidad.percentage);*/
+  }
+
   public getProjectById2(id:number){
       this.servicio.getProject(id).subscribe(res => {
         this.idProy = res.id_project;
         this.project = res;
       
-      console.log(this.project);
+     
       this.formEditProy1.controls['name_project'].setValue(this.project.name_project);
       this.formEditProy1.controls['principal'].setValue(this.project.principal);
       this.formEditProy1.controls['description'].setValue(this.project.description);
       this.formEditProy1.controls['img_proy'].setValue(this.project.img_proy);
       this.formEditProy1.controls['logo_img'].setValue(this.project.logo_img);
       this.formEditProy1.controls['link_project'].setValue(this.project.link_project);
+      console.log(this.formEditProy1.value);
     })
   }
 
@@ -181,16 +210,15 @@ export class ProjectsComponent implements OnInit {
     })
   }
   
-  //group.setValue({foo: 'only foo'});
 
-  public editProject(){
-    
-    let proy = this.formEditProy.value
-    console.log(proy)
-    proy.id = this.idProy
-    this.servicio.updateProject(this.idProy, proy).subscribe(res=>{
+  public editProject(id:number){
+    //let proy = this.formEditProy.value
+    console.log("editProjet arroja esto:")
+    //console.log(proy)
+    console.log(id)
+    this.servicio.updateProject(id, this.formEditProy1.value).subscribe(res=>{
       console.log(res)
-
+     
       window.location.reload()
     }, error => {
       console.error(error)

@@ -94,7 +94,7 @@ export class ExperienceComponent implements OnInit {
     })
   }
 
-  public deleteImgProject(id:number){
+  public deleteImgExperience(id:number){
     this.expService.deleteExperience(id).subscribe(()=>{
       window.location.reload()
     }, error => {

@@ -14,7 +14,12 @@
     <hr class="mb-3" />
     
     <div class="button">
+      
+      <app-button-add data-toggle="modal" data-target="#add_ImgExp" (click)="getExperienceById(experience.id)"></app-button-add>
+      <app-form-add-img-experience class="modal" id="add_ImgExp"></app-form-add-img-experience>
       <app-button-delete (click)="deleteExperience(experience.id)"></app-button-delete>
+      <app-button-edit></app-button-edit>
+      
     </div>
   
       <p><a [href]="experience.link_experience" target="_blank">{{experience.company}}</a> - {{experience.asignament}} - {{experience.duracion}} - hasta {{experience.anio_salida}}.</p>
@@ -23,11 +28,6 @@
         <div class="carousel-inner">
           
           <div class="carousel-item" *ngFor="let img of images; index as i" [ngClass]="{'active': i == 0 }">
-            
-            <div class="button">
-              <app-button-add data-toggle="modal" data-target="#add_ImgExp" (click)="getExperienceById(experience.id)"></app-button-add>
-              <app-form-add-img-experience class="modal" id="add_ImgExp"></app-form-add-img-experience>
-            </div>
 
             <img class="d-block w-100" [src]="img.imgLink" alt="First slide">
             <div class="carousel-caption d-none d-md-block">

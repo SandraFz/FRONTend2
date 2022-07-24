@@ -21,6 +21,7 @@ import { EditProjectComponent } from './auxiliares/form-edit-project/form-edit-p
 import { ExperienceComponent } from './components/experience/experience.component'; 
 import { FormAddExperienceComponent } from './auxiliares/form-add-experience/form-add-experience.component';
 import { FormAddImgExperienceComponent } from './auxiliares/form-add-img-experience/form-add-img-experience.component';
+import { FormEditExperienceComponent } from './auxiliares/form-edit-experience/form-edit-experience.component';
 
 
 
@@ -43,6 +44,7 @@ import { FormAddImgExperienceComponent } from './auxiliares/form-add-img-experie
     ExperienceComponent,
     FormAddExperienceComponent,
     FormAddImgExperienceComponent,
+    FormEditExperienceComponent
   ],
   imports: [
     BrowserModule,
