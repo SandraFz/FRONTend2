@@ -141,10 +141,11 @@ public init(id:number){
     })
   }
 
-  public addImg(id:number){
+  public addImg(idExp:number){
     let image = this.formEditImg.value
-    this.expService.addImgExperience(id, image).subscribe((res)=> {
+    this.expService.addImgExperience(idExp, image).subscribe((res)=> {
       //this.images.push(res)
+      this.getExperience(idExp);
       console.log(this.formEditImg.value)
       this.formEditImg.reset('')
     }, error => {
@@ -161,6 +162,7 @@ public init(id:number){
 
   public deleteImgSub(idExp:number, idImg:number){
     this.expService.deleteImgExperience(idExp, idImg).subscribe(()=>{
+      this.getExperience(idExp);
     }, error => {
       console.log(error)
     })
