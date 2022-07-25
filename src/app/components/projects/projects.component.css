@@ -24,6 +24,10 @@ a {
 .card-img-overlay{
     display: flex;
     align-items: flex-end;
+    padding-bottom:2px;
+    padding-left:2px;
+    padding-right:2px;
+    
 }
  .title{
     width: 100%;
@@ -42,6 +46,7 @@ a {
     
 }
 
+
 .option2 {
     display: none;
    
@@ -52,12 +57,15 @@ a {
  opacity: 0;
  color:var(--principal-background);
  font-family: var(--special-style);
+ 
 }
 
 .card-text:hover{
     opacity: 1;
     background-color: white;
     padding: 5px;
+    font-size: 0.6em;
+    max-height: 7em;
 }
 
 

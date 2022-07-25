@@ -9,6 +9,7 @@ export interface Experience {
     logo_experience:string;
     link_experience:string;
     person:number;
+    //images:ImgExperience[];
     imgExperience:ImgExperience;
 }
 

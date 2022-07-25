@@ -76,7 +76,7 @@ h6 {
    
 }
 
-h2, h5 {
+h4, h5 {
     font-family: var(--simple-text);
 }
 
@@ -95,6 +95,11 @@ ul {
     width: 100%;
     display: flex;
     justify-content: right;
+}
+
+.img-edit {
+    width: 16px;
+    height: 16px;
 }
 
 @media screen and (max-width: 1200px) {

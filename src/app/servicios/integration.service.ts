@@ -26,7 +26,7 @@ export class IntegrationService {
 
     public updatePerson(id: number, person: Person){
     
-   return this.http.put(this.url+'/person/edit/'+id, person);
+   return this.http.put(this.url+'/person/edit/'+this.id, person);
   }
 
   

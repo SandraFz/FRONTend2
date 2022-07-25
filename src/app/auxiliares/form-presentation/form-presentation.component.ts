@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRouteSnapshot } from '@angular/router';
 
 import { Person } from '../../model/person';
 import { IntegrationService } from 'src/app/servicios/integration.service';
@@ -42,9 +41,8 @@ export class FormPresentationComponent implements OnInit {
   }
 
   public updatePerson() {
-    this.integration.getPersonById(this.idPers)
-    let person = this.formPresentation.value
-    this.integration.updatePerson(this.idPers, person).subscribe(() => {
+    
+    this.integration.updatePerson(this.idPers, this.formPresentation.value).subscribe(() => {
     }, error => {
       console.log("updatePerson: " + error)
     })

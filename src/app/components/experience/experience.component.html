@@ -1,53 +1,132 @@
 <div class="component-container">
 
   <div class="title">
-    <h2 class="my-1">Última experiencia</h2>
-  </div>
-
-  <div class="button">
+    <h4 class="my-1">Última experiencia</h4>
     <app-button-add data-toggle="modal" data-target="#add_exp"></app-button-add>
     <app-form-add-experience class="modal" id="add_exp" arie-hidden="true"></app-form-add-experience>
-</div>
+  </div>
 
   <div *ngFor="let experience of experiences">
-    
+
     <hr class="mb-3" />
-    
+    <!--Botones y formularios-->
     <div class="button">
-      
-      <app-button-add data-toggle="modal" data-target="#add_ImgExp" (click)="getExperienceById(experience.id)"></app-button-add>
+
+      <app-button-add data-toggle="modal" data-target="#add_ImgExp"></app-button-add>
       <app-form-add-img-experience class="modal" id="add_ImgExp"></app-form-add-img-experience>
+      <app-button-edit data-toggle="modal" data-target="#edit_exp" (click)="getExperience(experience.id)">
+      </app-button-edit>
       <app-button-delete (click)="deleteExperience(experience.id)"></app-button-delete>
-      <app-button-edit></app-button-edit>
-      
-    </div>
-  
-      <p><a [href]="experience.link_experience" target="_blank">{{experience.company}}</a> - {{experience.asignament}} - {{experience.duracion}} - hasta {{experience.anio_salida}}.</p>
-  
-      <div id="carouselExample1" class="carousel slide z-depth-1-half" data-ride="carousel">
-        <div class="carousel-inner">
-          
-          <div class="carousel-item" *ngFor="let img of images; index as i" [ngClass]="{'active': i == 0 }">
 
-            <img class="d-block w-100" [src]="img.imgLink" alt="First slide">
-            <div class="carousel-caption d-none d-md-block">
-              <p class="card-text">{{img.softSkill}}</p>
+      <!--Formulario Editar Projecto"-->
+      <div class="modal" id="edit_exp">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Editar experiencia</h5>
+
             </div>
+
+            <div class="modal-body">
+
+              <form [formGroup]="formEditExp">
+                <div class="form-group">
+
+                  <label for="">Empresa:</label>
+                  <input type="text" formControlName="company" class="form-control">
+
+                  <label for="asignament">Funciones:</label>
+                  <input formControlName="asignament" class="form-control">
+
+                  <label for="anio_salida">Año de salida</label>
+                  <input type="text" formControlName="anio_salida" class="form-control" placeholder="">
+
+                  <label for="duracion">Duración:</label>
+                  <input type="text" formControlName="duracion" class="form-control" value="true">
+
+                  <label for="link_experience"></label>
+                  <input type="text" formControlName="link_experience" class="form-control"
+                    placeholder="Página de la empresa">
+
+                  
+                    <table class="md-6" style="margin-top:15px; margin-bottom: 15px;"><!--PASAR LOS ESTILOS A LA HOJA DE ESTILOS-->
+                      <label for="table"><h6>Imágenes</h6></label>
+                        <tr *ngFor="let img of images">
+                          <td>
+                            <div>
+                                <img src="{{img.imgLink}}" style="width: 25px; height: auto;" alt="">
+                              </div>
+                          </td>
+                          <td style="font-size: 11px; font-weight: lighter;">{{img.softSkill}}</td>
+                          <td><app-button-delete data-target="#edit_exp" (click)="deleteImgSub(experience.id, img.id)"></app-button-delete></td>
+                        </tr>
+                      
+                    </table>
+                  
+
+                  <div class="modal-content modal-header modal-dialog">
+                    <!--SubFormImg-->
+                    <form id="subForm1" [formGroup]="formEditImg" class="col-md-4">
+                      <label for="imgLink">Imagen:</label>
+                      <input type="text" formControlName="imgLink" class="form-control sub_imput">
+
+                      <label for="softSkill">Comentario</label>
+                      <textarea type="text" formControlName="softSkill" class="form-control"></textarea>
+
+                      <button style="margin-top: 15px;" id="buttonSubForm1" 
+                      type="button submit" class="btn btn-save"(click)="addImg(this.experience.id)"
+                       >Guardar</button>
+
+                    </form>
+                    <!--Fin SubFormImg-->
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button submit" class="btn btn-save">Guardar</button>
+                    <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
+                  </div>
+
+                </div>
+              </form>
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+
           </div>
-        
         </div>
-        <a class="carousel-control-prev" href="#carouselExample1" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExample1" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
+    </div>
+    <!--Fin del formulario-->
+
+    <p><a [href]="experience.link_experience" target="_blank">{{experience.company}}</a> - {{experience.asignament}} -
+      {{experience.duracion}} - hasta {{experience.anio_salida}}.</p>
+
+    <div id="carouselExample1" class="carousel slide z-depth-1-half" data-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item" *ngFor="let img of images; index as i" [ngClass]="{'active': i == 0 }">
+          <img class="d-block w-100" [src]="img.imgLink" alt="First slide">
+          <div class="carousel-caption d-none d-md-block">
+            <p class="card-text">{{img.softSkill}}</p>
+          </div>
+          <p class="card-text">{{img.softSkill}}</p>
+        </div>
+
+      </div>
+      <a class="carousel-control-prev" href="#carouselExample1" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExample1" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
 
   </div>
-  
-  
-  </div>
-  
+
+
+</div>

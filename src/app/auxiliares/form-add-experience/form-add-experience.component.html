@@ -21,8 +21,7 @@
                         <input formControlName="asignament" class="form-control">
 
                         <label for="anio_salida">Año de salida</label>
-                        <input type="text" formControlName="anio_salida" class="form-control"
-                            placeholder="">
+                        <input type="text" formControlName="anio_salida" class="form-control" placeholder="">
 
                         <label for="duracion">Duración:</label>
                         <input type="text" formControlName="duracion" class="form-control" value="true">
@@ -31,17 +30,23 @@
                         <input type="text" formControlName="link_experience" class="form-control"
                             placeholder="Página de la empresa">
 
+                        <div class="modal-content modal-header modal-dialog">
+                            <!--SubFormImg-->
                             <form [formGroup]="formImgExperience">
-                            <label for="imgLink">Imagen:</label>
-                            <input type="text" formControlName="imgLink" class="form-control">
 
-                            <label for="softSkill">Comentario</label>
-                            <input type="text" formControlName="softSkill" class="form-control">
+                                <label for="imgLink">Imagen:</label>
+                                <input type="text" formControlName="imgLink" class="form-control sub_imput">
+
+                                <label for="softSkill">Comentario</label>
+                                <textarea type="text" formControlName="softSkill" class="form-control"></textarea>
 
                             </form>
-                            
+                            <!--Fin SubFormImg-->
+                        </div>
+
                         <div class="modal-footer">
                             <button type="button submit" class="btn btn-save" (click)="addExperience()">Guardar</button>
+                            <button type="button submit" class="btn btn-save" >Guardar</button>
                             <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
                         </div>
 
@@ -53,3 +58,4 @@
         </div>
     </div>
 </div>
+

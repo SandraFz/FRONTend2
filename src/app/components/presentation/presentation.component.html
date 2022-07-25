@@ -1,61 +1,103 @@
-<div class="component-container container-fluid"> <!-- *ngFor="let person of people"--> 
+<div class="component-container container-fluid">
+  <!-- *ngFor="let person of people"-->
 
   <!--Presentation- Recordar cambiar en style Article element por clase-->
   <div class="container1">
 
     <div class="img-presentation">
-      
+
       <div class="button">
-      <app-button-edit class="prof_photo" data-toggle="modal" data-target="#modal_prof_photo"></app-button-edit>
-      <app-form-presentation class="modal" tabindex="-1" id="modal_prof_photo" arie-hidden="true"></app-form-presentation>
 
-      <!--<app-form-img class="modal" tabindex="-1" id="modal_prof_photo" arie-hidden="true"></app-form-img>-->
-    </div>
-     <img [src]="person.professional_photo" alt="Lola-y-yo-en-Mascompany" class="img-fluid photo" alt="...">
-    </div>
-    
+        <app-button-edit class="prof_photo" data-toggle="modal" data-target="#modal_prof_photo1"
+          (click)="getPersonToEdit()"></app-button-edit>
+        <app-form-presentation class="modal" tabindex="-1" id="modal_prof_photo" arie-hidden="true">
+        </app-form-presentation>
 
-    <div class="presentation"><!--aria-labelledby="textArea" role="dialog"-->
-<!--
+        <!--Formulario de edición-->
+        <div class="modal" id="modal_prof_photo1">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Editar datos</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="formEdit">
+                  <!---->
+                  <div class="form-group">
+
+                    <div class="fondo">
+                      <img id="imagen" alt="Nueva fotografía" [src]="person.professional_photo" />
+                    </div>
+
+                    <form class="newImage">
+                      <label for="">Inserte la url de la nueva imagen</label>
+                      <input [(ngModel)]="person.professional_photo" type="text" id="url_imagen" class="form-control"
+                        onchange="document.getElementById('imagen').src=this.value;" /><!--  required-->
+
+                      <div>
+                        <!--class="form-group"-->
+                        <label for="exampleFormControlTextarea1">Nueva Presentación</label>
+                        <textarea [(ngModel)]="person.presentation" name="presentation" class="form-control"
+                          id="exampleFormControlTextarea1" rows="5" required></textarea>
+                      </div>
+
+                      <input [(ngModel)]="person.name" type="text" name="name" class="form-control" placeholder=name>
+                      <input [(ngModel)]="person.lastName" type="text" name="lastName" class="form-control"
+                        placeholder="apellido" required>
+                      <input [(ngModel)]="person.age" type="text" name="age" class="form-control" placeholder="edad"
+                        required>
+                      <input [(ngModel)]="person.origin" type="text" name="origin" class="form-control"
+                        placeholder="ciudad" required>
+                      <input [(ngModel)]="person.profession" type="text" name="profession" class="form-control"
+                        placeholder="título" required>
+
+                    </form>
+
+                  </div>
+                  <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-try">Probar</button>-->
+                    <button type="button" class="btn btn-save" (click)="editPresentation()">Guardar</button>
+                    <!---->
+                    <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!--Fin del formulario de edición-->
+        <!--<app-form-img class="modal" tabindex="-1" id="modal_prof_photo" arie-hidden="true"></app-form-img>-->
+      </div>
+      <img [src]="person.professional_photo" alt="Lola-y-yo-en-Mascompany" class="img-fluid photo" alt="...">
+    </div>
+
+
+    <div class="presentation">
+      <!--aria-labelledby="textArea" role="dialog"-->
+      <!--
       <div class="button">
         <app-button-edit data-toggle="modal" data-target="#ventana-modal"></app-button-edit>
         <app-form-text class="modal" tabindex="-1" id="ventana-modal"   arie-hidden="true"></app-form-text>
       </div>
       -->
-      <h2>Sobre mí</h2>
+      <h4>Sobre mí</h4>
 
       <p class="text-presentation">{{person.presentation}}</p>
     </div>
   </div>
 
-  <!--Resume/Data
-  -->
-  
-
   <div class="resume">
     <div id="resume_data">
-       <!--<app-form1></app-form1>-->
     </div>
 
     <span id="name">{{person.name}} {{person.lastName}} - {{person.age}} años.</span><br>
     <span id="profession">{{person.profession}}</span><br>
     <span id="origin">{{person.origin}}</span>
 
-    
-  
-      
-
-      <form id="datos" style= "display:none" class="edit">          
-          <input type="text" placeholder="Nombre" maxlength="45" oninput="ingresar_parrafo('name', this.value)">
-          <input type="text" placeholder="Título" maxlength="45" oninput="ingresar_parrafo('title', this.value)">
-          <input type="text" placeholder="Origen" maxlength="45" oninput="ingresar_y_cerrar('origin', this.value, 'datos')">
-          <!--
-              <input type="submit" value="Guardar" onclick="guardar_cambio('datos')">
-          <input id="cancelarEdit" type="submit" value="Cancelar" onclick="cancelarEdit('EditPresentation')">
-          -->
-      </form>
   </div>
 </div>
-
-
-
