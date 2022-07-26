@@ -31,12 +31,13 @@ formEdit:FormGroup;
   }
 
   ngOnInit(): void {
-   //this.getPerson();
+   this.getPerson();
    this.getPersonToEdit();
   }
 
   public getPerson(){
     this.integration.getPerson().subscribe(res => {
+      console.log("Esto es del get para databinding")
       console.log(res);
       this.person=res;
     }, error => {
@@ -45,10 +46,13 @@ formEdit:FormGroup;
   }
 
   getPersonToEdit(){
+    let personToEdit = this.formEdit.value
+    this.idPers = personToEdit.id
     this.integration.getPerson().subscribe(res => {
       console.log("getById arroja:")
       console.log(res)
       this.person = res
+    this.formEdit.controls['id_person'].setValue(this.person.id_person);
     this.formEdit.controls['name'].setValue(this.person.name);
     this.formEdit.controls['lastName'].setValue(this.person.lastName);
     this.formEdit.controls['age'].setValue(this.person.age);
@@ -56,7 +60,7 @@ formEdit:FormGroup;
     this.formEdit.controls['origin'].setValue(this.person.origin);
     this.formEdit.controls['presentation'].setValue(this.person.presentation);
     this.formEdit.controls['professional_photo'].setValue(this.person.professional_photo);
-    console.log(this.person)
+    console.log(this.formEdit)
     }, error => {
       console.log(error)
     })
@@ -64,8 +68,12 @@ formEdit:FormGroup;
   }
 
   public editPresentation(){
-    this.integration.updatePerson(this.idPers, this.formEdit.value).subscribe(res=>{
-      console.log(res)
+    let editedPerson = this.formEdit.value
+    //console.log("Esto viene del formulario")
+    //console.log(editedPerson)
+    this.integration.updatePerson(editedPerson.id, this.formEdit.value).subscribe(res=>{
+      //console.log(res)
+      window.location.reload()
     }, error =>{
       console.error(error)
     })

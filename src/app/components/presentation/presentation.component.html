@@ -33,29 +33,29 @@
                       <img id="imagen" alt="Nueva fotografía" [src]="person.professional_photo" />
                     </div>
 
-                    <form class="newImage">
+                    <div class="newImage">
                       <label for="">Inserte la url de la nueva imagen</label>
-                      <input [(ngModel)]="person.professional_photo" type="text" id="url_imagen" class="form-control"
-                        onchange="document.getElementById('imagen').src=this.value;" /><!--  required-->
+                      <input formControlName="url_img" type="text" id="url_imagen" class="form-control"
+                         /><!--onchange="document.getElementById('imagen').src=this.value;"  required-->
 
                       <div>
                         <!--class="form-group"-->
-                        <label for="exampleFormControlTextarea1">Nueva Presentación</label>
-                        <textarea [(ngModel)]="person.presentation" name="presentation" class="form-control"
+                        <label for="presentation">Nueva Presentación</label>
+                        <textarea formControlName="presentation" name="presentation" class="form-control"
                           id="exampleFormControlTextarea1" rows="5" required></textarea>
                       </div>
 
-                      <input [(ngModel)]="person.name" type="text" name="name" class="form-control" placeholder=name>
-                      <input [(ngModel)]="person.lastName" type="text" name="lastName" class="form-control"
-                        placeholder="apellido" required>
-                      <input [(ngModel)]="person.age" type="text" name="age" class="form-control" placeholder="edad"
-                        required>
-                      <input [(ngModel)]="person.origin" type="text" name="origin" class="form-control"
-                        placeholder="ciudad" required>
-                      <input [(ngModel)]="person.profession" type="text" name="profession" class="form-control"
-                        placeholder="título" required>
+                      <input formControlName="name" type="text" class="form-control my-1" placeholder=name>
+                      <input formControlName="lastName" type="text" name="lastName" class="form-control"
+                        placeholder="apellido">
+                      <input formControlName="age" type="text" name="age" class="form-control" placeholder="edad"
+                        >
+                      <input formControlName="origin" type="text" name="origin" class="form-control"
+                        placeholder="ciudad" >
+                      <input formControlName="profession" type="text" name="profession" class="form-control"
+                        placeholder="título" >
 
-                    </form>
+                    </div>
 
                   </div>
                   <div class="modal-footer">
