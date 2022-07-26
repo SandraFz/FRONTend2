@@ -13,8 +13,8 @@
     <div class="button">
 
       <app-button-add data-toggle="modal" data-target="#add_ImgExp"></app-button-add>
-      <app-form-add-img-experience class="modal" id="add_ImgExp"></app-form-add-img-experience>
-      <app-button-edit data-toggle="modal" data-target="#edit_exp" (click)="getExperience(experience.id)">
+      <!--<app-form-add-img-experience class="modal" id="add_ImgExp"></app-form-add-img-experience>-->
+      <app-button-edit data-toggle="modal" data-target="#edit_exp" (click)="getExperienceById(experience.id)">
       </app-button-edit>
       <app-button-delete (click)="deleteExperience(experience.id)"></app-button-delete>
 
@@ -48,41 +48,59 @@
                   <input type="text" formControlName="link_experience" class="form-control"
                     placeholder="Página de la empresa">
 
-                  
-                    <table class="md-6" style="margin-top:15px; margin-bottom: 15px;"><!--PASAR LOS ESTILOS A LA HOJA DE ESTILOS-->
-                      <label for="table"><h6>Imágenes</h6></label>
-                        <tr *ngFor="let img of images">
-                          <td>
-                            <div>
-                                <img src="{{img.imgLink}}" style="width: 25px; height: auto;" alt="">
-                              </div>
-                          </td>
-                          <td style="font-size: 11px; font-weight: lighter;">{{img.softSkill}}</td>
-                          <td><app-button-delete data-target="#edit_exp" (click)="deleteImgSub(experience.id, img.id)"></app-button-delete></td>
-                        </tr>
+                    <table class="md-6" style="margin-top:15px; margin-bottom: 15px;" >
+                      <!--PASAR LOS ESTILOS A LA HOJA DE ESTILOS-->
                       
+                      <label for="table" >
+                        
+                      </label >
+                      <tr *ngFor="let img of images">
+                        <td>
+                          <div>
+                            <img src="{{img.imgLink}}" style="width: 25px; height: auto;" alt="">
+                          </div>
+                        </td>
+                        <td style="font-size: 11px; font-weight: lighter;">{{img.softSkill}}</td>
+                        <td>
+                          <div class="button">
+                            <app-button-edit (click)="getImg(img.id)"></app-button-edit>
+                            <app-button-delete (click)="deleteImgSub(experience.id, img.id)"></app-button-delete>
+  
+                          </div>
+  
+                        </td>
+                      </tr>
+  
                     </table>
                   
 
+
                   <div class="modal-content modal-header modal-dialog">
+                    <h6>Imágenes</h6>
+                    
                     <!--SubFormImg-->
                     <form id="subForm1" [formGroup]="formEditImg" class="col-md-4">
+                   <!-- <label for="imgLink">Id:</label>
+                      <input type="text" id="imgLink" formControlName="imgLink" class="form-control sub_imput">
+                    -->
+
                       <label for="imgLink">Imagen:</label>
-                      <input type="text" formControlName="imgLink" class="form-control sub_imput">
+                      <input type="text" id="imgLink" formControlName="imgLink" class="form-control sub_imput">
 
                       <label for="softSkill">Comentario</label>
-                      <textarea type="text" formControlName="softSkill" class="form-control"></textarea>
+                      <textarea type="text" id="imgLink" formControlName="softSkill" class="form-control"></textarea>
 
-                      <button style="margin-top: 15px;" id="buttonSubForm1" 
-                      type="button submit" class="btn btn-save"(click)="addImg(this.experience.id)"
-                       >Guardar</button>
+                      <button style="margin-top: 15px;" type="button submit" class="btn btn-save mx-1" 
+                         (click)="addImg(experience.id)">Agregar</button>
+                         <button style="margin-top: 15px;" type="button submit" class="btn btn-save"
+                          (click)="editImg()">Actualizar</button>
 
                     </form>
                     <!--Fin SubFormImg-->
                   </div>
 
                   <div class="modal-footer">
-                    <button type="button submit" class="btn btn-save">Guardar</button>
+                    <button type="button" class="btn btn-save" (click)="editExperienceAndImg()">Guardar</button>
                     <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
                   </div>
 
@@ -93,8 +111,6 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-
-
           </div>
         </div>
       </div>

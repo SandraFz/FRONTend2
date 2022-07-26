@@ -4,6 +4,7 @@ import { ExperienceService } from 'src/app/servicios/experience.service';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { ImgExperience } from 'src/app/model/ImgExperience';
 
+
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
@@ -17,6 +18,8 @@ export class ExperienceComponent implements OnInit {
   idExp!:number;
   formEditExp:FormGroup;
   formEditImg:FormGroup;
+  idImg!:number;
+  editImg1!:number;
   
 
   //Atributos ImgExperience
@@ -24,12 +27,6 @@ export class ExperienceComponent implements OnInit {
   images:ImgExperience[]=[];
   images1:ImgExperience[]=[];
   image!:ImgExperience;
-  
-
-  imgForm = new FormGroup({
-    imgLink: new FormControl(''),
-    softSkill: new FormControl(''),
-  })
 
   constructor(private expService:ExperienceService, private fb:FormBuilder) { 
     this.formEditExp = this.fb.group({
@@ -40,13 +37,15 @@ export class ExperienceComponent implements OnInit {
       duracion: new FormControl(''),
       logo_experience: new FormControl(''),
       link_experience: new FormControl(''),
-      imgExperience: this.fb.group({
-        imgLink: new FormControl(''),
-      softSkill: new FormControl(''),
-      })
+      //imgExperience: this.fb.group({
+        //id_img: new FormControl(''),
+        //imgLink: new FormControl(''),
+     //softSkill: new FormControl(''),
+     //})
     })
 
     this.formEditImg = this.fb.group ({
+      id: new FormControl(''),
       imgLink: new FormControl(''),
       softSkill: new FormControl(''),
     })
@@ -71,10 +70,10 @@ export class ExperienceComponent implements OnInit {
       console.log(error);
     })
   }
-
+/*
 public init(id:number){
   this.getExperience(id);
-}
+}*/
 
   public getExperience(id:number){
     this.expService.getExperience(id).subscribe(res =>{
@@ -91,9 +90,13 @@ public init(id:number){
   }
 
   getExperienceById(id:number){
+    let expToEdit = this.formEditExp.value
+    this.idExp = expToEdit.id
     this.expService.getExperience(id).subscribe(res => {
+      console.log('Esto trae el getExperienceById')
       console.log(res)
       this.experience = res
+      this.formEditExp.controls['id'].setValue(this.experience.id);
       this.formEditExp.controls['company'].setValue(this.experience.company);
       this.formEditExp.controls['asignament'].setValue(this.experience.asignament);
       this.formEditExp.controls['anio_salida'].setValue(this.experience.anio_salida);
@@ -105,6 +108,7 @@ public init(id:number){
     this.imgExpList(id)
   }
 
+  
 
   
   public deleteExperience(idExp:number){
@@ -115,21 +119,23 @@ public init(id:number){
     })
   }
 
-  public editExperience(){
-    let exp = this.formEditExp.value
-    console.log(exp)
-    exp.id = this.idExp
-    this.expService.updateExperience(this.idExp, exp).subscribe(res=>{
-      console.log(res)
-      const {id, company, asignament, anio_salida, duracion, logo_experience, link_experience} = res
-      this.idExp = id;
-     this.editImg(this.idExp)
-      console.log(this.idExp)
-      window.location.reload()
+  public editExperienceAndImg(){
+    let editedExp = this.formEditExp.value
+    console.log("Esto viene del formulario")
+    console.log(editedExp)
+    //exp.id = this.idExp
+    this.expService.updateExperience(editedExp.id, this.formEditExp.value).subscribe(res=>{
+      //console.log(res)
+      //const {id, company, asignament, anio_salida, duracion, logo_experience, link_experience} = res
+      //this.idExp = id;
+     //this.editImg(id)
+      //console.log(id)
+      this.getExperience(editedExp)
     }, error => {
       console.error(error)
     })
   }
+
 
   //Métodos ImgExperience 
   public imgExpList(id:number){
@@ -141,11 +147,11 @@ public init(id:number){
     })
   }
 
-  public addImg(idExp:number){
+  public addImg(idImg:number){
     let image = this.formEditImg.value
-    this.expService.addImgExperience(idExp, image).subscribe((res)=> {
+    this.expService.addImgExperience(idImg, image).subscribe((res)=> {
       //this.images.push(res)
-      this.getExperience(idExp);
+      this.getExperience(idImg);
       console.log(this.formEditImg.value)
       this.formEditImg.reset('')
     }, error => {
@@ -153,12 +159,32 @@ public init(id:number){
     })
   }
 
-  public editImg(idImg:number){
-    this.expService.updateExperience(idImg, this.formEditImg.value).subscribe(res=>{
+  public getImg(idImg:number){
+    this.expService.getImg(idImg).subscribe(res=>{
+      const {id, imgLink, softSkill} = res
+      this.idImg = id;
+      //this.imgForm.setValue({imgLink, softSkill})
+      this.formEditImg.setValue({id, imgLink, softSkill})
+      //this.formEditImg.controls['linkImg'].setValue(this.image.imgLink);
+      //this.formEditImg.controls['softSkill'].setValue(this.image.softSkill);
+      console.log(res)
+    })
+  }
+
+  public editImg(){
+    let editedImg = this.formEditImg.value
+    this.editImg1  = editedImg.id
+    //console.log(editedImg)
+    this.expService.updateImg(editedImg.id, this.formEditImg.value).subscribe((res)=>{
+      console.log(res)
+      //this.getExperienceById(this.idExp)
+      this.formEditImg.reset()
     }, error =>{
       console.error(error)
     })
   }
+
+
 
   public deleteImgSub(idExp:number, idImg:number){
     this.expService.deleteImgExperience(idExp, idImg).subscribe(()=>{
@@ -174,11 +200,6 @@ public init(id:number){
     }, error => {
       console.log(error)
     })
-  }
-
-  //Métodos mixtos
-  public getExperienceAndImg(id:number){
-
   }
 
   

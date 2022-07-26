@@ -66,7 +66,7 @@ export class ProjectsComponent implements OnInit {
   } 
 
   public editProject(id:number){
-    this.servicio.updateProject(id, this.formEditProy1.value).subscribe(res=>{
+    this.servicio.updateProject(id, this.formEditProy1.value).subscribe((res)=>{
       window.location.reload()
     }, error => {
       console.error(error)

@@ -35,7 +35,7 @@ export class ExperienceService {
   }
 
   public updateExperience(id:number, exp:Experience){
-    return this.http.put<any>
+    return this.http.put<Experience>
     (this.url+`/exp/edit/${id}`, exp)
   }
 
@@ -46,7 +46,7 @@ export class ExperienceService {
   }
 
   public getImg(id:number):Observable<ImgExperience>{
-    return this.http.get<ImgExperience>(this.url+`/exp/find/${id}`)
+    return this.http.get<ImgExperience>(this.url+`/exp/img/find/${id}`)
   }
 
   public addImgExperience(id:number, imgExp:ImgExperience):Observable<ImgExperience>{
@@ -58,7 +58,7 @@ export class ExperienceService {
   }
  
  public updateImg(id:number, img:ImgExperience){
-  return this.http.put<any>(this.url+`/exp/ing/edit/${id}`, img)
+  return this.http.put<ImgExperience>(this.url+`/exp/img/edit/${id}`, img)
  } 
 
 }

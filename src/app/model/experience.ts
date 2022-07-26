@@ -10,6 +10,6 @@ export interface Experience {
     link_experience:string;
     person:number;
     //images:ImgExperience[];
-    imgExperience:ImgExperience;
+    //imgExperience:ImgExperience;
 }
 
