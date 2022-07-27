@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/model/Project';
 import { ProjectService } from 'src/app/servicios/project.service';
@@ -49,7 +50,7 @@ export class ProjectsComponent implements OnInit {
     })
   }
 
-  public getProjectById(id: number) {
+  public getProjectById(id: number){
     this.servicio.getProject(id).subscribe(res => {
       console.log("getById arroja:")
       console.log(res)

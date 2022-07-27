@@ -1,1 +1,50 @@
-<span class="bar"><span [ngStyle]="{'width' : 25 + '%' }"></span></span><span class="porc">Lo que sea%</span>
+<div class="contaier-component" *ngFor="let skill of skills">
+    <div class="p-line html">
+        <span class="cen" [ngStyle]="{'width.%': skill.skill_progress}">{{skill.skill_progress+"%"}}</span>
+      </div>
+      
+</div>
+
+
+<div class="component_container contenedor">
+   <!-- <div class="pac-man"></div>-->
+    <div class="prog">
+
+    </div>
+</div>
+
+<style>
+
+    .prog {
+        width: 50px;
+        height: 50px;
+        border: solid 2px green;
+        /*background: black;*/
+        border-radius: 100%;
+        clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+    }
+
+    .contenedor {
+        
+    }
+    .pac-man { 
+
+        /*border-right: 50px solid transparent; */
+        border-top: 50px solid #5cb85c; 
+        border-left: 50px solid #5cb85c; 
+        border-bottom: 50px solid #5cb85c; 
+       border-bottom: 50px solid #5cb85c; 
+        border-radius: 100%;
+
+       /* width:0; 
+        height:0; 
+        border-right: 50px solid transparent; 
+        border-top: 50px solid #5cb85c; 
+        border-left: 50px solid #5cb85c; 
+        border-bottom: 50px solid #5cb85c; 
+        -moz-border-radius: 100%; 
+        -webkit-border-radius: 100%; 
+        border-radius: 100%; */
+        }
+</style>
+

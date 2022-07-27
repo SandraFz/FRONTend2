@@ -110,7 +110,7 @@ public init(id:number){
       this.formEditExp.controls['duracion'].setValue(this.experience.duracion);
       this.formEditExp.controls['logo_experience'].setValue(this.experience.logo_experience);
       this.formEditExp.controls['link_experience'].setValue(this.experience.link_experience);
-      //this.formEditExp.controls['id_img'].setValue(this.experience.images.id_img)
+      //this.formEditExp.controls['images.id_img'].setValue(this.experience.images.id_img);
       console.log(res.id)
     })
    // this.imgExpList(id)

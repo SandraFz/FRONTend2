@@ -4,7 +4,6 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { Observable } from "rxjs";
 import { Project } from "../model/Project";
-import { IntegrationService } from "./integration.service";
 
 @Injectable({providedIn:'root'})
 export class ProjectService {

@@ -1,5 +1,3 @@
-
-
 export interface Experience {
     id:number;
     company: string;
