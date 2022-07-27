@@ -1,4 +1,4 @@
-import { ImgExperience } from "./ImgExperience";
+
 
 export interface Experience {
     id:number;
@@ -9,6 +9,12 @@ export interface Experience {
     logo_experience:string;
     link_experience:string;
     person:number;
+    images:[{
+        id_img:number;
+        imgLink:string;
+        softSkill:string;
+        experience:number;
+    }]
     //images:ImgExperience[];
     //imgExperience:ImgExperience;
 }

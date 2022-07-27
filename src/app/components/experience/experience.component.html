@@ -12,8 +12,6 @@
     <!--Botones y formularios-->
     <div class="button">
 
-      <app-button-add data-toggle="modal" data-target="#add_ImgExp"></app-button-add>
-      <!--<app-form-add-img-experience class="modal" id="add_ImgExp"></app-form-add-img-experience>-->
       <app-button-edit data-toggle="modal" data-target="#edit_exp" (click)="getExperienceById(experience.id)">
       </app-button-edit>
       <app-button-delete (click)="deleteExperience(experience.id)"></app-button-delete>
@@ -22,8 +20,13 @@
       <div class="modal" id="edit_exp">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
+            
             <div class="modal-header">
+              
               <h5 class="modal-title">Editar experiencia</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
 
             </div>
 
@@ -54,7 +57,7 @@
                       <label for="table" >
                         
                       </label >
-                      <tr *ngFor="let img of images">
+                      <tr *ngFor="let img of experience.images">
                         <td>
                           <div>
                             <img src="{{img.imgLink}}" style="width: 25px; height: auto;" alt="">
@@ -63,8 +66,8 @@
                         <td style="font-size: 11px; font-weight: lighter;">{{img.softSkill}}</td>
                         <td>
                           <div class="button">
-                            <app-button-edit (click)="getImg(img.id)"></app-button-edit>
-                            <app-button-delete (click)="deleteImgSub(experience.id, img.id)"></app-button-delete>
+                            <app-button-edit (click)="getImg(img.id_img)"></app-button-edit>
+                            <app-button-delete (click)="deleteImgSub(experience.id, img.id_img)"></app-button-delete>
   
                           </div>
   
@@ -93,23 +96,21 @@
                       <button style="margin-top: 15px;" type="button submit" class="btn btn-save mx-1" 
                          (click)="addImg(experience.id)">Agregar</button>
                          <button style="margin-top: 15px;" type="button submit" class="btn btn-save"
-                          (click)="editImg()">Actualizar</button>
+                          (click)="editImg(experience.id)">Actualizar</button>
 
                     </form>
                     <!--Fin SubFormImg-->
                   </div>
 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-save" (click)="editExperienceAndImg()">Guardar</button>
+                    <button type="button" class="btn btn-save" (click)="editExperience(experience.id)">Guardar</button>
                     <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
                   </div>
 
                 </div>
               </form>
 
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+              
             </div>
           </div>
         </div>
@@ -123,7 +124,7 @@
     <div id="carouselExample1" class="carousel slide z-depth-1-half" data-ride="carousel">
       <div class="carousel-inner">
 
-        <div class="carousel-item" *ngFor="let img of images; index as i" [ngClass]="{'active': i == 0 }">
+        <div class="carousel-item" *ngFor="let img of experience.images; index as i" [ngClass]="{'active': i == 0 }">
           <img class="d-block w-100" [src]="img.imgLink" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
             <p class="card-text">{{img.softSkill}}</p>

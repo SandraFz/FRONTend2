@@ -1,3 +1,8 @@
+.container1 {
+    display: grid;
+    grid-row: inherit;
+}
+
 .dinamic {
     display: grid;
     grid-template-columns: 2fr 1fr;

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Experience } from 'src/app/model/experience';
 import { ExperienceService } from 'src/app/servicios/experience.service';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, AnyForUntypedForms } from '@angular/forms';
 import { ImgExperience } from 'src/app/model/ImgExperience';
+
 
 
 @Component({
@@ -20,11 +21,10 @@ export class ExperienceComponent implements OnInit {
   formEditImg:FormGroup;
   idImg!:number;
   editImg1!:number;
+  listImg!:any;
   
-
   //Atributos ImgExperience
-  //imgExpList:ImgExperience[]=[];
-  images:ImgExperience[]=[];
+  //images:ImgExperience[]=[];
   images1:ImgExperience[]=[];
   image!:ImgExperience;
 
@@ -37,11 +37,16 @@ export class ExperienceComponent implements OnInit {
       duracion: new FormControl(''),
       logo_experience: new FormControl(''),
       link_experience: new FormControl(''),
-      //imgExperience: this.fb.group({
-        //id_img: new FormControl(''),
-        //imgLink: new FormControl(''),
-     //softSkill: new FormControl(''),
-     //})
+      images: this.fb.group ({
+        id_img: new FormControl(''),
+        imgLink: new FormControl(''),
+        softSkill: new FormControl(''),
+      })
+      /*subFormEditImg : this.fb.group ({
+        id: new FormControl(''),
+        imgLink: new FormControl(''),
+        softSkill: new FormControl(''),
+      })*/
     })
 
     this.formEditImg = this.fb.group ({
@@ -53,9 +58,8 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit(): void {
     this.experienceList();
-    this.getExperience(this.experience.id);
-    this.getExperienceById(this.experience.id)
-   // this.imgExpList(this.idExp);
+    //this.getExperience(this.experience.id);
+    //this.getExperienceById(this.experience.id)
   }
 
   //Métodos Experiencia
@@ -65,7 +69,10 @@ export class ExperienceComponent implements OnInit {
       this.experiences = res;
       let [{id, company, asignament, anio_salida, duracion, logo_experience, link_experience, person}] = res
       this.idExp = id;
-      this.imgExpList(this.idExp)
+      console.log("Esto viene del primer get y arroja sobre el subForm:")
+      //this.listImg = subFormEditImg;
+      //this.imgExpList(this.idExp)
+      console.log(this.listImg)
     }, error => {
       console.log(error);
     })
@@ -103,9 +110,10 @@ public init(id:number){
       this.formEditExp.controls['duracion'].setValue(this.experience.duracion);
       this.formEditExp.controls['logo_experience'].setValue(this.experience.logo_experience);
       this.formEditExp.controls['link_experience'].setValue(this.experience.link_experience);
+      //this.formEditExp.controls['id_img'].setValue(this.experience.images.id_img)
       console.log(res.id)
     })
-    this.imgExpList(id)
+   // this.imgExpList(id)
   }
 
   
@@ -119,7 +127,7 @@ public init(id:number){
     })
   }
 
-  public editExperienceAndImg(){
+  public editExperience(idExp:number){
     let editedExp = this.formEditExp.value
     console.log("Esto viene del formulario")
     console.log(editedExp)
@@ -130,7 +138,9 @@ public init(id:number){
       //this.idExp = id;
      //this.editImg(id)
       //console.log(id)
-      this.getExperience(editedExp)
+      //window.location.reload()
+      this.getExperience(idExp)
+      //this.getExperience(editedExp)
     }, error => {
       console.error(error)
     })
@@ -141,7 +151,7 @@ public init(id:number){
   public imgExpList(id:number){
     this.expService.imgExperienceList(id).subscribe(res=>{
       console.log(res)
-      this.images = res;
+      this.images1 = res;
     }, error => {
       console.log(error);
     })
@@ -171,13 +181,13 @@ public init(id:number){
     })
   }
 
-  public editImg(){
+  public editImg(idExp:number){
     let editedImg = this.formEditImg.value
     this.editImg1  = editedImg.id
     //console.log(editedImg)
     this.expService.updateImg(editedImg.id, this.formEditImg.value).subscribe((res)=>{
       console.log(res)
-      //this.getExperienceById(this.idExp)
+      this.getExperience(idExp)
       this.formEditImg.reset()
     }, error =>{
       console.error(error)
