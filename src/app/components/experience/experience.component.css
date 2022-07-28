@@ -1,6 +1,11 @@
 .component-container{
-    width: 80%;
-    padding: 20px;
+    width: 100%;
+}
+
+.sub-container {
+    max-width: 500px;
+   margin:auto;
+    text-align: center;
 }
 
 div .carousel-item {

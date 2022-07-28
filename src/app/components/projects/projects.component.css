@@ -3,24 +3,28 @@ a {
 }
 
 .component-container {
-    width:70% ;
+    width:100% ;
     height: auto;
-    /*border: 3px solid brown;*/
+    border: 3px solid var(--second-background);
     padding:5px;
+    border-radius: 20px;
 }
 
 .flex{
     display: flex;
-    gap: 10px;
+    padding: 20px;
+    gap: 20px;
+    justify-content:center;
 }
+
 .ngForOther {
-    /*background-color: blueviolet;*/
     width: auto;
-   
 }
+
 .card{
     border: none;
 }
+
 .card-img-overlay{
     display: flex;
     align-items: flex-end;

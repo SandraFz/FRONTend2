@@ -5,7 +5,7 @@
 
 .dinamic {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
     gap: 20px;
 }
 
@@ -26,7 +26,6 @@ article {
 app-sidebar {
     grid-column:2/-1;
     grid-row: 1/-1;
-    background: var(--principal-background);
     color: white;
 }
 
@@ -43,7 +42,6 @@ app-sidebar {
     
     app-sidebar {
         width: 100%;
-        background: var(--principal-background);
     }
 }
 

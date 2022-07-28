@@ -1,19 +1,13 @@
 <div class="component-container">
-    <div class="sub-container row d-block mt-100" *ngFor="let skill of skills">
-
-        <div class="progress blue">
-            <span class="progress-left">
-                              <span class="progress-bar"></span>
-            </span>
-            <span class="progress-right">
-                              <span class="progress-bar"></span>
-            </span>
-            <div class="progress-value">{{skill.skill_progress}}</div>
-            
-          </div>
-        <div clas="skill_name">
-            <p>{{skill.name_skill}}</p>
-        </div>
-       
+    <h3>Skills</h3>
+    <div class="button">
+        <app-button-add></app-button-add>
     </div>
+    <div class="skill" *ngFor="let skill of skills">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" [ngStyle]="{'width.%': skill.skill_progress}" style="width: 85%;"></div>
+        </div>
+        <h6>{{skill.name_skill}}</h6>
+    </div>
+
 </div>
