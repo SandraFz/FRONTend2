@@ -50,7 +50,7 @@ export class ExperienceComponent implements OnInit {
     })
 
     this.formEditImg = this.fb.group ({
-      id: new FormControl(''),
+      id_img: new FormControl(''),
       imgLink: new FormControl(''),
       softSkill: new FormControl(''),
     })
@@ -175,8 +175,9 @@ public init(id:number){
       this.idImg = id_img;
       //this.imgForm.setValue({imgLink, softSkill})
       this.formEditImg.setValue({id_img, imgLink, softSkill})
-      //this.formEditImg.controls['linkImg'].setValue(this.image.imgLink);
-      //this.formEditImg.controls['softSkill'].setValue(this.image.softSkill);
+      /*this.formEditImg.controls['id_img'].setValue(this.image.id_img);
+      this.formEditImg.controls['linkImg'].setValue(this.image.imgLink);
+      this.formEditImg.controls['softSkill'].setValue(this.image.softSkill);*/
       console.log(res)
     })
   }
@@ -185,7 +186,7 @@ public init(id:number){
     let editedImg = this.formEditImg.value
     this.editImg1  = editedImg.id
     //console.log(editedImg)
-    this.expService.updateImg(editedImg.id, this.formEditImg.value).subscribe((res)=>{
+    this.expService.updateImg(this.idImg, this.formEditImg.value).subscribe((res)=>{
       console.log(res)
       this.getExperience(idExp)
       this.formEditImg.reset()
