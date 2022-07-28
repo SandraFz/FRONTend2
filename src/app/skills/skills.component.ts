@@ -47,9 +47,15 @@ export class SkillsComponent implements OnInit {
 
   public getSkillById(id:number){
     this.servicio.getSkill(id).subscribe(res => {
+      console.log(res)
+      this.skill = res
       this.formEditSk.controls['id'].setValue(this.skill.id);
-    this.formEditSk.controls['name_skill'].setValue(this.skill.name_skill);
-    this.formEditSk.controls['skill_progress'].setValue(this.skill.skill_progress);
+      this.formEditSk.controls['name_skill'].setValue(this.skill.name_skill);
+      this.formEditSk.controls['skill_progress'].setValue(this.skill.skill_progress);
+      console.log("Esto arroja getSkill")
+      console.log(this.skill.id)
+      console.log(this.skill.name_skill)
+      console.log(this.skill.skill_progress)
     }, error => {
       console.log(error)
     })

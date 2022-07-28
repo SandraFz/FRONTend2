@@ -23,7 +23,7 @@ article {
     grid-column: 1/2;
 }
 
-app-sidebar {
+app-skills {
     grid-column:2/-1;
     grid-row: 1/-1;
     color: white;
@@ -40,7 +40,7 @@ app-sidebar {
         display:block;
     }
     
-    app-sidebar {
+    app-skillls {
         width: 100%;
     }
 }

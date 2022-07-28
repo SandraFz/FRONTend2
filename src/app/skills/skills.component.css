@@ -9,6 +9,7 @@
 .skill {
    height: 60px;
    text-align: center;
+  margin-top: 30px;
 }
 
 .progress {
@@ -30,11 +31,16 @@ h6 {
     margin:5px, 0, 3px, 0;
 }
 
-@media scree and (max-width: 500px) {
+@media screen and (max-width: 500px) {
     .component-container{
+        
         display:grid;
         gap:1rem;
         grid-auto-rows: 22rem;
         grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    }
+
+    .skill{
+        border: 3px solid black;
     }
 }
