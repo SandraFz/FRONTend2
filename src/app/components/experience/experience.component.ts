@@ -171,10 +171,10 @@ public init(id:number){
 
   public getImg(idImg:number){
     this.expService.getImg(idImg).subscribe(res=>{
-      const {id, imgLink, softSkill} = res
-      this.idImg = id;
+      const {id_img, imgLink, softSkill} = res
+      this.idImg = id_img;
       //this.imgForm.setValue({imgLink, softSkill})
-      this.formEditImg.setValue({id, imgLink, softSkill})
+      this.formEditImg.setValue({id_img, imgLink, softSkill})
       //this.formEditImg.controls['linkImg'].setValue(this.image.imgLink);
       //this.formEditImg.controls['softSkill'].setValue(this.image.softSkill);
       console.log(res)

@@ -1,5 +1,5 @@
 export interface ImgExperience {
-    id:number;
+    id_img:number;
     imgLink:string;
     softSkill:string;
     experience:number;
