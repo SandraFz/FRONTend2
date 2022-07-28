@@ -49,8 +49,8 @@ export class ExperienceService {
     return this.http.get<ImgExperience>(this.url+`/exp/img/find/${id}`)
   }
 
-  public addImgExperience(id:number, imgExp:ImgExperience):Observable<ImgExperience>{
-    return this.http.post<ImgExperience>(this.url+`/exp/img/new/${id}`, imgExp)
+  public addImgExperience(idExp:number, imgExp:ImgExperience):Observable<ImgExperience>{
+    return this.http.post<ImgExperience>(this.url+`/exp/img/new/${idExp}`, imgExp)
   }
   
   public deleteImgExperience(idExp:number, idImg:number){

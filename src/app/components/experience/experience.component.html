@@ -20,9 +20,9 @@
       <div class="modal" id="edit_exp">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            
+
             <div class="modal-header">
-              
+
               <h5 class="modal-title">Editar experiencia</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -51,39 +51,36 @@
                   <input type="text" formControlName="link_experience" class="form-control"
                     placeholder="Página de la empresa">
 
-                    <table class="md-6" style="margin-top:15px; margin-bottom: 15px;" >
-                      <!--PASAR LOS ESTILOS A LA HOJA DE ESTILOS-->
-                      
-                      <label for="table" >
-                        
-                      </label >
-                      <tr *ngFor="let img of experience.images">
-                        <td>
-                          <div>
-                            <img src="{{img.imgLink}}" style="width: 25px; height: auto;" alt="">
-                          </div>
-                        </td>
-                        <td style="font-size: 11px; font-weight: lighter;">{{img.softSkill}}</td>
-                        <td>
-                          <div class="button">
-                            <app-button-edit (click)="getImg(img.id_img)"></app-button-edit>
-                            <app-button-delete (click)="deleteImgSub(experience.id, img.id_img)"></app-button-delete>
-  
-                          </div>
-  
-                        </td>
-                      </tr>
-  
-                    </table>
-                  
+                  <table class="md-6" style="margin-top:15px; margin-bottom: 15px;">
+                    <!--PASAR LOS ESTILOS A LA HOJA DE ESTILOS-->
 
+                    <label for="table">
+                    </label>
+                    <tr *ngFor="let img of this.experience.images">
+                      <td>
+                        <div>
+                          <img src="{{img.imgLink}}" style="width: 25px; height: auto;" alt="">
+                        </div>
+                      </td>
+                      <td style="font-size: 11px; font-weight: lighter;">{{img.softSkill}}</td>
+                      <td>
+                        <div class="button">
+                          <app-button-edit (click)="getImg(img.id_img)"></app-button-edit>
+                          <app-button-delete (click)="deleteImgSub(experience.id, img.id_img)"></app-button-delete>
+
+                        </div>
+
+                      </td>
+                    </tr>
+
+                  </table>
 
                   <div class="modal-content modal-header modal-dialog">
                     <h6>Imágenes</h6>
-                    
+
                     <!--SubFormImg-->
                     <form id="subForm1" [formGroup]="formEditImg" class="col-md-4">
-                   <!-- <label for="imgLink">Id:</label>
+                      <!-- <label for="imgLink">Id:</label>
                       <input type="text" id="imgLink" formControlName="imgLink" class="form-control sub_imput">
                     -->
 
@@ -93,24 +90,24 @@
                       <label for="softSkill">Comentario</label>
                       <textarea type="text" id="imgLink" formControlName="softSkill" class="form-control"></textarea>
 
-                      <button style="margin-top: 15px;" type="button submit" class="btn btn-save mx-1" 
-                         (click)="addImg(experience.id)">Agregar</button>
-                         <button style="margin-top: 15px;" type="button submit" class="btn btn-save"
-                          (click)="editImg(experience.id)">Actualizar</button>
+                      <button style="margin-top: 15px;" type="button submit" class="btn btn-save mx-1"
+                        (click)="addImg(experience.id)">Agregar</button>
+                      <button style="margin-top: 15px;" type="button submit" class="btn btn-save"
+                        (click)="editImg(experience.id)">Actualizar</button>
 
                     </form>
                     <!--Fin SubFormImg-->
                   </div>
 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-save" (click)="editExperience(experience.id)">Guardar</button>
+                    <button type="button" class="btn btn-save" (click)="editExperience()">Guardar</button>
                     <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
                   </div>
 
                 </div>
               </form>
 
-              
+
             </div>
           </div>
         </div>
@@ -118,7 +115,7 @@
     </div>
     <!--Fin del formulario-->
 
-    <p><a [href]="experience.link_experience" target="_blank">{{experience.company}}</a> - {{experience.asignament}} -
+    <p><a [href]="experience.link_experience" target="_blank">{{experience.id}}-{{experience.company}}</a> - {{experience.asignament}} -
       {{experience.duracion}} - hasta {{experience.anio_salida}}.</p>
 
     <div id="carouselExample1" class="carousel slide z-depth-1-half" data-ride="carousel">
