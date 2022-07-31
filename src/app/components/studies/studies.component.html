@@ -4,10 +4,61 @@
     <div class="button">
         <app-button-add data-toggle="modal" data-target="#add_study"></app-button-add>
         <app-form-add-study class="modal" id="add_study"></app-form-add-study>
+        
     </div>
         <div class="subcontainer1">
            
     <div class="subcontainer" *ngFor="let study of studies">
+        <div class="button">
+            <app-button-edit data-toggle="modal" data-target="#edit_study" (click)="getStudy(study.id)"></app-button-edit>
+            <app-button-delete (click)="deleteStudy(study.id)"></app-button-delete>
+            <!--Formulario-->
+            <div class="modal" id="edit_study">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Editar estudio</h5>
+                
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="formEditStu">
+                                <div class="form-group">
+                
+                                    <label for="">Instituto/entidad:</label>
+                                    <input type="text" formControlName="insti_studios" class="form-control" />
+                
+                                    <label for="title_studies">Título:</label>
+                                    <input type="text" formControlName="title_studies" class="form-control">
+                
+                                    <label for="anio_iniStudy">Año de inicio:</label>
+                                    <input type="text" formControlName="anio_iniStudy" class="form-control">
+                
+                                    <label for="anio_end">Año de terminación:</label>
+                                    <input type="text" formControlName="anio_end" class="form-control">
+                
+                                    <label for="logo_studies">Enlace del logo:</label>
+                                    <input type="text" formControlName="logo_studies" class="form-control">
+                
+                
+                                    <div class="modal-footer">
+                                        <button type="button submit" class="btn btn-save" (click)="editStudy(study.id)">Guardar</button>
+                                        <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                
+                                </div>
+                
+                            </form>
+                        </div>
+                
+                    </div>
+                </div>
+    
+            </div>
+<!--Fin del formulario-->            
+        </div>
         <ul class="principal"  *ngIf="study.logo_studies != ''" >
 
             <li>

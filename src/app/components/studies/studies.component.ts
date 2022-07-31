@@ -19,9 +19,8 @@ export class StudiesComponent implements OnInit {
   constructor(private servicio:StudiesService, private fb:FormBuilder) {
 
     this.formEditStu = this.fb.group({
-
       id: new FormControl(''),
-      insti_studies: new FormControl(''),
+      insti_studios: new FormControl(''),
       title_studies: new FormControl(''),
       anio_iniStudy: new FormControl(''),
       anio_end: new FormControl(''),
@@ -44,14 +43,16 @@ export class StudiesComponent implements OnInit {
 
   public deleteStudy(id:number){
     this.servicio.deleteStudy(id).subscribe(()=> {
-      window.location.reload();
+      //window.location.reload();
     }, error => {
-      console.log(error);
+      console.log("DeleteStudy error:", error);
     })
   }
 
   public getStudy(id:number){
     this.servicio.getStudy(id).subscribe(res => {
+      console.log("El res de getStudy antes del setValue:", res)
+      this.study = res
       this.formEditStu.controls['id'].setValue(this.study.id);
       this.formEditStu.controls['insti_studios'].setValue(this.study.insti_studios);
       this.formEditStu.controls['title_studies'].setValue(this.study.title_studies);
@@ -59,6 +60,7 @@ export class StudiesComponent implements OnInit {
       this.formEditStu.controls['anio_end'].setValue(this.study.anio_end);
       this.formEditStu.controls['logo_studies'].setValue(this.study.logo_studies);
       this.formEditStu.controls['link_studies'].setValue(this.study.link_studies);
+      console.log("El formEditStu después del setValue:", this.formEditStu.value)
     }, error => {
       console.log(error)
     })

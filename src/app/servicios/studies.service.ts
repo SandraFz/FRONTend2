@@ -23,7 +23,7 @@ export class StudiesService {
   }
 
   public deleteStudy(idStu:number){
-    return this.http.delete<Study>(this.url+'/skill/delete/'+this.idPers+`${idStu}`);
+    return this.http.delete<Study>(this.url+'/skill/delete/'+this.idPers+`/${idStu}`);
   }
 
   public getStudy(idStu:number):Observable<Study>{

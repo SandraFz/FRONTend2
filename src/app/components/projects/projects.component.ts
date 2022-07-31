@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/model/Project';
 import { ProjectService } from 'src/app/servicios/project.service';
@@ -39,7 +38,7 @@ export class ProjectsComponent implements OnInit {
       console.log(res)
       this.projects = res;
     }, error => {
-      console.log("pojectsComponent: " + error);})
+      console.log("pojectsComponentError: " + error);})
   }
 
   public deleteProject(idElem:number){
@@ -52,7 +51,7 @@ export class ProjectsComponent implements OnInit {
 
   public getProjectById(id: number){
     this.servicio.getProject(id).subscribe(res => {
-      console.log("getById arroja:")
+      console.log("getById arroja:", res)
       console.log(res)
       this.project = res
       this.formEditProy1.controls['name_project'].setValue(this.project.name_project);
@@ -61,6 +60,7 @@ export class ProjectsComponent implements OnInit {
       this.formEditProy1.controls['img_proy'].setValue(this.project.img_proy);
       this.formEditProy1.controls['logo_img'].setValue(this.project.logo_img);
       this.formEditProy1.controls['link_project'].setValue(this.project.link_project);
+      console.log("Lo que queda en el formulario después del setValue:", this.formEditProy1.value)
     }, error => {
       console.log(error)
     })
