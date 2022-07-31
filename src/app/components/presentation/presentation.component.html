@@ -27,16 +27,12 @@
               <div class="modal-body">
                 <form [formGroup]="formEdit">
                   <!---->
-                  <div class="form-group">
-
-                    <div class="fondo">
-                      <img id="imagen" alt="Nueva fotografía" [src]="person.professional_photo" />
-                    </div>
+                  <div class="form-group" >
 
                     <div class="newImage">
                       <label for="">Inserte la url de la nueva imagen</label>
                       <input formControlName="url_img" type="text" id="url_imagen" class="form-control"
-                         /><!--onchange="document.getElementById('imagen').src=this.value;"  required-->
+                         />
 
                       <div>
                         <!--class="form-group"-->
@@ -44,16 +40,23 @@
                         <textarea formControlName="presentation" name="presentation" class="form-control"
                           id="exampleFormControlTextarea1" rows="5" required></textarea>
                       </div>
-
+                      <label for="name">Nombres:</label>
                       <input formControlName="name" type="text" class="form-control my-1" placeholder=name>
+
+                      <label for="lastName">Apellido:</label>
                       <input formControlName="lastName" type="text" name="lastName" class="form-control"
                         placeholder="apellido">
-                      <input formControlName="age" type="text" name="age" class="form-control" placeholder="edad"
-                        >
+
+                        <label for="age">Edad:</label>
+                      <input formControlName="age" type="text" name="age" class="form-control" placeholder="edad">
+
+                      <label for="origin">Origen:</label>
                       <input formControlName="origin" type="text" name="origin" class="form-control"
-                        placeholder="ciudad" >
+                        placeholder="ciudad">
+
+                        <label for="profession">Título:</label>
                       <input formControlName="profession" type="text" name="profession" class="form-control"
-                        placeholder="título" >
+                        placeholder="título">
 
                     </div>
 

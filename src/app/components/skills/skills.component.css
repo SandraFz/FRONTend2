@@ -32,6 +32,10 @@ h6 {
 }
 
 @media screen and (max-width: 500px) {
+.component-container{
+    height: auto;
+}
+
     .subcontainer{
         width: 100%;
         display: grid;
