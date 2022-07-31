@@ -9,7 +9,6 @@
 
 
 .skill {
-   height: 60px;
    text-align: center;
    margin-top: 5px;
 }
@@ -33,10 +32,6 @@ h6 {
 }
 
 @media screen and (max-width: 500px) {
-    .component-container{
-        height: auto;
-    }
-
     .subcontainer{
         width: 100%;
         display: grid;

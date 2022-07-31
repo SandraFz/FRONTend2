@@ -12,15 +12,10 @@
 .container {
     width: 100%;
     height: auto;
-    border: 5px solid black;
     margin-left: auto;
     margin-right: auto;
     padding-left: 0px;
     padding-right: 0px;
-}
-
-.container1{
-    border: 2px solid blue;
 }
 
 article {

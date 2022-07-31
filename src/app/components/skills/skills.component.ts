@@ -47,6 +47,7 @@ export class SkillsComponent implements OnInit {
 
   public getSkillById(id:number){
     this.servicio.getSkill(id).subscribe(res => {
+      this.skill = res
       this.formEditSk.controls['id'].setValue(this.skill.id);
     this.formEditSk.controls['name_skill'].setValue(this.skill.name_skill);
     this.formEditSk.controls['skill_progress'].setValue(this.skill.skill_progress);
