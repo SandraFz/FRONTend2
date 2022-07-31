@@ -43,6 +43,7 @@ export class StudiesComponent implements OnInit {
 
   public deleteStudy(id:number){
     this.servicio.deleteStudy(id).subscribe(()=> {
+      console.log("El id que trae delete:", id)
       //window.location.reload();
     }, error => {
       console.log("DeleteStudy error:", error);

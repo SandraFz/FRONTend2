@@ -46,8 +46,12 @@
                                             <textarea class="form-control" rows="5" formControlName="description">
                                             </textarea>
 
-                                            <label for="principal">¿Es el proyecto principal?</label>
-                                            <input class="form-control" formControlName="principal" value="true">
+                                            <label for="principal">¿Desea destacar este proyecto?</label>
+                                            <select formControlName="principal" id="" class="form-control">
+                                                <option value="true">Sí</option>
+                                                <option value="false">No</option>
+                                            </select>
+
 
                                             <label for="form-control">Inserte la url de la nueva imagen</label>
                                             <input class="form-control" formControlName="img_proy"
@@ -125,10 +129,14 @@
                                                     <textarea class="form-control" rows="5"
                                                         formControlName="description">
                                                                                         </textarea>
+                                                                                        
 
-                                                    <label for="principal">¿Es el proyecto principal?</label>
-                                                    <input class="form-control" formControlName="principal"
-                                                        value="true">
+
+                                                    <label for="principal">¿Desea destacar este proyecto?</label>
+                                                    <select formControlName="principal" id="" class="form-control">
+                                                        <option value="true">Sí</option>
+                                                        <option value="false">No</option>
+                                                    </select>
 
                                                     <label for="form-control">Inserte la url de la nueva imagen</label>
                                                     <input class="form-control" formControlName="img_proy"
