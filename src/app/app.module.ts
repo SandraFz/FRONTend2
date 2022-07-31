@@ -22,7 +22,9 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { FormAddExperienceComponent } from './auxiliares/form-add-experience/form-add-experience.component';
 import { FormAddImgExperienceComponent } from './auxiliares/form-add-img-experience/form-add-img-experience.component';
 import { FormEditExperienceComponent } from './auxiliares/form-edit-experience/form-edit-experience.component';
-import { SkillsComponent } from './skills/skills.component'; 
+import { FormAddStudyComponent } from './auxiliares/form-add-study/form-add-study.component'; 
+import { StudiesComponent } from './components/studies/studies.component';
+import { SkillsComponent } from './components/skills/skills.component';
 
 
 
@@ -46,7 +48,9 @@ import { SkillsComponent } from './skills/skills.component';
     FormAddExperienceComponent,
     FormAddImgExperienceComponent,
     FormEditExperienceComponent,
-    SkillsComponent
+    FormAddStudyComponent,
+    StudiesComponent,
+    SkillsComponent,
   ],
   imports: [
     BrowserModule,

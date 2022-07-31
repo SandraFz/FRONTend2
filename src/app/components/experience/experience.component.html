@@ -62,7 +62,10 @@
                           <img src="{{img.imgLink}}" style="width: 25px; height: auto;" alt="">
                         </div>
                       </td>
-                      <td style="font-size: 11px; font-weight: lighter;">{{img.softSkill}}</td>
+                      <td style="font-size: 11px; font-weight: lighter; margin: auto, 2px, auto, 2px;">
+                        {{img.softSkill}}
+                      
+                      </td>
                       <td>
                         <div class="button">
                           <app-button-edit (click)="getImg(img.id_img)"></app-button-edit>
@@ -91,9 +94,9 @@
                       <textarea type="text" id="imgLink" formControlName="softSkill" class="form-control"></textarea>
 
                       <button style="margin-top: 15px;" type="button submit" class="btn btn-save mx-1"
-                        (click)="addImg(experience.id)">Agregar</button>
+                        (click)="addImg()">Agregar</button>
                       <button style="margin-top: 15px;" type="button submit" class="btn btn-save"
-                        (click)="editImg(experience.id)">Actualizar</button>
+                        (click)="editImg()">Actualizar</button>
 
                     </form>
                     <!--Fin SubFormImg-->
@@ -101,7 +104,7 @@
 
                   <div class="modal-footer">
                     <button type="button" class="btn btn-save" (click)="editExperience()">Guardar</button>
-                    <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-close" data-dismiss="modal" (click)="clear()">Cerrar</button>
                   </div>
 
                 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Skill } from '../model/Skill';
-import { SkillsService } from '../skills.service';
+import { Skill } from '../../model/Skill';
+import { SkillsService } from 'src/app/servicios/skills.service';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({

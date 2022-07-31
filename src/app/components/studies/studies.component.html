@@ -1,0 +1,37 @@
+<div class="component-container">
+    <h5>Estudios, cursos y talleres</h5>
+    <div class="button">
+        <app-button-add></app-button-add>
+    </div>
+    <div class="subcontainer" *ngFor="let study of studies">
+        <ul class="principal">
+
+            <li>
+                <div class="img">
+                    <img [src]="study.logo_studies" alt="Logo Argentina Programa">
+                </div>
+
+                <div class="studies">
+                    <h6>{{study.title_studies}}</h6>
+                    <P>{{study.insti_studios}}</P>
+                    <p>{{study.anio_iniStudy}}-{{study.anio_end}}</p>
+                </div>
+            </li>
+        </ul>
+<!--
+        <ul class="course">
+            <app-button-edit></app-button-edit>
+            <li class="studies">
+                <h6>Emprendedorismo</h6>
+                <p>Cámara de Mujeres Emprendedoras Formosa y otros</p>
+                <p>2018</p>
+            </li>
+            <li class="studies">
+                <h6>Asistente de Recursos Humanos</h6>
+                <p>Instituto Mercantil Formosa y otros</p>
+                <p>2018</p>
+            </li>
+        </ul>
+    </div>
+    -->
+</div>

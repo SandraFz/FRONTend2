@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { Skill } from './model/Skill';
+import { Skill } from '../model/Skill';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
