@@ -25,6 +25,7 @@ import { FormEditExperienceComponent } from './auxiliares/form-edit-experience/f
 import { FormAddStudyComponent } from './auxiliares/form-add-study/form-add-study.component'; 
 import { StudiesComponent } from './components/studies/studies.component';
 import { SkillsComponent } from './components/skills/skills.component';
+import { FormAddSkillComponent } from './auxiliares/form-add-skill/form-add-skill.component';
 
 
 
@@ -51,6 +52,7 @@ import { SkillsComponent } from './components/skills/skills.component';
     FormAddStudyComponent,
     StudiesComponent,
     SkillsComponent,
+    FormAddSkillComponent,
   ],
   imports: [
     BrowserModule,

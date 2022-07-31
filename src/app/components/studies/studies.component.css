@@ -1,21 +1,21 @@
-.subcontainer {
-    width: 100%;
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 15px;
+.component-container{
+    margin-top: 30px;
 }
-ul {
+
+.subcontainer1{
     display: grid;
-    grid-template-rows: auto;
-    border: 2px solid brown;
+    gap: 5px;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+ul {
     padding: 5px;
 }
 
 li {
     display:grid;
     grid-template-columns: 1fr 4fr;
-    /*background-color: blueviolet;*/
     word-wrap: break-word;
     gap: 5px;
     margin-left: 5px;

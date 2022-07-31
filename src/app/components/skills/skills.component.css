@@ -1,14 +1,17 @@
 
 .component-container {
-    background:var(--principal-background-hover);
+    background:var(--principal-background-hover); /*VOLVER A HABILITAR*/
     height: 100%;
     padding: 20px;
     border-radius: 20px;
+
 }
+
 
 .skill {
    height: 60px;
    text-align: center;
+   margin-top: 5px;
 }
 
 .progress {
@@ -18,7 +21,6 @@
     border-radius: 0%;
     margin-bottom: 3px;
     background:wheat;
-    
 }
 
 .progress-bar {
@@ -30,11 +32,12 @@ h6 {
     margin:5px, 0, 3px, 0;
 }
 
-@media scree and (max-width: 500px) {
-    .component-container{
-        display:grid;
-        gap:1rem;
-        grid-auto-rows: 22rem;
-        grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+@media screen and (max-width: 500px) {
+    .subcontainer{
+        width: 100%;
+        display: grid;
+    gap: 5px;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
     }
 }

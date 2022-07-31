@@ -1,1 +1,42 @@
-<p>form-add-study works!</p>
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Agregar Estudio o curso realizado</h5>
+
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formAddStudy">
+                <div class="form-group">
+
+                    <label for="">Instituto/entidad:</label>
+                    <input type="text" formControlName="insti_studios" class="form-control" />
+
+                    <label for="title_studies">Título:</label>
+                    <input type="text" formControlName="title_studies" class="form-control">
+
+                    <label for="anio_iniStudy">Año de inicio:</label>
+                    <input type="text" formControlName="anio_iniStudy" class="form-control">
+
+                    <label for="anio_end">Año de terminación:</label>
+                    <input type="text" formControlName="anio_end" class="form-control">
+
+                    <label for="logo_studies">Enlace del logo:</label>
+                    <input type="text" formControlName="logo_studies" class="form-control">
+
+                    <div class="modal-footer">
+                        <button type="button submit" class="btn btn-save" (click)="addStudy()">Guardar</button>
+                        <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+

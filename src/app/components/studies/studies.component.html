@@ -1,10 +1,14 @@
 <div class="component-container">
     <h5>Estudios, cursos y talleres</h5>
+    
     <div class="button">
-        <app-button-add></app-button-add>
+        <app-button-add data-toggle="modal" data-target="#add_study"></app-button-add>
+        <app-form-add-study class="modal" id="add_study"></app-form-add-study>
     </div>
+        <div class="subcontainer1">
+           
     <div class="subcontainer" *ngFor="let study of studies">
-        <ul class="principal">
+        <ul class="principal"  *ngIf="study.logo_studies != ''" >
 
             <li>
                 <div class="img">
@@ -18,20 +22,16 @@
                 </div>
             </li>
         </ul>
-<!--
-        <ul class="course">
-            <app-button-edit></app-button-edit>
+
+        <ul class="course" *ngIf="study.logo_studies == ''">
             <li class="studies">
-                <h6>Emprendedorismo</h6>
-                <p>Cámara de Mujeres Emprendedoras Formosa y otros</p>
-                <p>2018</p>
+                <h6>{{study.title_studies}}</h6>
+                <p>{{study.insti_studios}}</p>
+                <p>{{study.anio_iniStudy || study.anio_end}}</p>
             </li>
-            <li class="studies">
-                <h6>Asistente de Recursos Humanos</h6>
-                <p>Instituto Mercantil Formosa y otros</p>
-                <p>2018</p>
-            </li>
+            
         </ul>
     </div>
-    -->
+        </div>
+    
 </div>

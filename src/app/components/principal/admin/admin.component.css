@@ -19,6 +19,10 @@
     padding-right: 0px;
 }
 
+.container1{
+    border: 2px solid blue;
+}
+
 article {
     grid-column: 1/2;
 }
