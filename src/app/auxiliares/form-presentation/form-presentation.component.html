@@ -14,15 +14,12 @@
           <form  [formGroup]="formPresentation">
             <div class="form-group">
                 
-             <!--Cambiar url--> 
-             <div class="fondo">
-                <img id="imagen" alt="Aqui se carga la imagen" [src]="person.professional_photo"/>
-             </div>
+            
              
              
             <form class="newImage">
                 <label for="">Inserte la url de la nueva imagen</label>
-                    <input [(ngModel)]="person.professional_photo" type="text" id="url_imagen" name="professional_photo" onchange="document.getElementById('imagen').src=this.value;" required/>
+                    <input [(ngModel)]="person.professional_photo" type="text" id="url_imagen" name="professional_photo" required/>
            
                 <div><!--class="form-group"-->
                   <label for="exampleFormControlTextarea1">Nueva Presentación</label>

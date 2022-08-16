@@ -26,6 +26,7 @@ import { FormAddStudyComponent } from './auxiliares/form-add-study/form-add-stud
 import { StudiesComponent } from './components/studies/studies.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { FormAddSkillComponent } from './auxiliares/form-add-skill/form-add-skill.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -53,6 +54,7 @@ import { FormAddSkillComponent } from './auxiliares/form-add-skill/form-add-skil
     StudiesComponent,
     SkillsComponent,
     FormAddSkillComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
