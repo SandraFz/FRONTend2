@@ -27,6 +27,10 @@ import { StudiesComponent } from './components/studies/studies.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { FormAddSkillComponent } from './auxiliares/form-add-skill/form-add-skill.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { LoginComponent } from './auxiliares/login/login.component';
 
 
 
@@ -55,6 +59,7 @@ import { FooterComponent } from './components/footer/footer.component';
     SkillsComponent,
     FormAddSkillComponent,
     FooterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +67,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
   ],
   providers: [],
   bootstrap: [AppComponent]

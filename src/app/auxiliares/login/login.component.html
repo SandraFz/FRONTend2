@@ -1,0 +1,71 @@
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Iniciar sesión</h5>
+
+
+            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>-->
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formLogin">
+                <div class="form-group">
+
+                    <label for="">email</label>
+                    <input type="text" id="url_imagen" formControlName="email" class="form-control" />
+
+                    <label for="name_project">Contraseña</label>
+                    <input type="text" formControlName="password" class="form-control">
+
+                    <div class="modal-footer">
+                        <button type="button submit" class="btn btn-save" (click)="singin()">Enviar</button>
+                    </div>
+
+                </div>
+
+            </form>
+            <a ><p data-toggle="modal" data-target="#register">Click aquí para registrarse.</p>
+            </a>
+            
+            <!--SubFormulario para registrarse-->
+            <div class="button">
+                <div id="register" class="modal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Registrarse</h5>
+    
+    
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form [formGroup]="formRegister">
+                                    <div class="form-group">
+    
+                                        <label for="">email</label>
+                                        <input type="text" id="url_imagen" formControlName="email" class="form-control" />
+    
+                                        <label for="name_project">Contraseña</label>
+                                        <input type="text" formControlName="password" class="form-control">
+    
+                                        <div class="modal-footer">
+                                            <button type="button submit" class="btn btn-save"
+                                                (click)="register()">Enviar</button>
+                                            <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
+                                        </div>
+    
+                                    </div>
+    
+                                </form>
+                            </div>
+    
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+
+        </div>

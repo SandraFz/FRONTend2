@@ -1,30 +1,31 @@
-<app-header></app-header>
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Registrarse</h5>
 
-<div class="container container-fluid" styles="background:blue;">
 
-    <app-presentation></app-presentation>
-    
-    <main class="container1">
-
-        <div class="dinamic">
-            
-            <article>
-
-                <app-projects></app-projects>
-                <app-experience></app-experience>
-                
-            </article>
-            <!--Sidebar-->
-            <app-skills></app-skills>
-
+            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>-->
         </div>
-        
-        <app-studies></app-studies>
-        <!--Contact-->
+        <div class="modal-body">
+            <form [formGroup]="formReg">
+                <div class="form-group">
 
-    </main>
+                    <label for="">email</label>
+                    <input type="text" id="url_imagen" formControlName="email" class="form-control" />
 
-</div>
+                    <label for="name_project">Contraseña</label>
+                    <input type="text" formControlName="password" class="form-control">
 
-<app-footer></app-footer>
+                    <div class="modal-footer">
+                        <button type="button submit" class="btn btn-save" (click)="onSubmit()">Enviar</button>
+                        <button type="button" class="btn btn-close" data-dismiss="modal">Cerrar</button>
+                    </div>
 
+                </div>
+
+            </form>
+        </div>
+
+    </div>

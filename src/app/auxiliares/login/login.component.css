@@ -1,0 +1,12 @@
+p{
+    color:blue;
+    font-weight: bold;
+}
+
+p:hover{
+    cursor:pointer;
+}
+
+a:visited { 
+    color: purple;
+}
