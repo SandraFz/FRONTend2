@@ -1,8 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Kurale&family=Playfair+Display:ital@0;1&family=Prata&family=Rozha+One&display=swap');
-/*font-family: 'Kurale', serif;
-font-family: 'Playfair Display', serif;
-font-family: 'Rozha One', serif;
-font-family: 'Prata', serif;*/
 
 /*General*/
 * {
@@ -30,16 +26,10 @@ font-family: 'Prata', serif;*/
     
 }
 
-/*html{
-    height: 100%;
-}*/
-
 /*Containers*/
 body {
-    border: 3px solid var(--principal-background-hover);/*Eliminar*/
     min-height: 100vh;
     min-width: 300px;
-    /*background-color: #9b9b7a;*/
     position:absolute;
     
 }
@@ -55,13 +45,8 @@ body.container-fluid {
 }
 
 .component-container {
-   /* min-width: 250px;
-    position: relative;*/
     margin-top: 20px;
     padding-top: 10px;
-    /*margin-left: 0px;
-    min-width: 90px;*/
-    /*background-color: yellow;*/
     width: 100%;
 }
 
@@ -79,7 +64,6 @@ h4, h5, h6 {
     display:flex;
     width: 100%;
     justify-content: center;
-    /*background-color: blueviolet;*/
  }
 
 ul {
@@ -99,12 +83,6 @@ ul {
 
 @media screen and (max-width: 1200px) {
 
-}
-
-@media screen and (max-width: 800px) {
-    /*.component-container{
-        width: 500px;
-    }*/
 }
 
 @media scree and (max-width: 500px) {

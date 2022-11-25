@@ -9,8 +9,8 @@ export const environment = {
     measurementId: 'G-MBJE4JDWW8',
   },
   production: true,
-  baseUrl:"https://arg-prog-portfolio3.herokuapp.com"//backEnd3
+  //baseUrl:"https://arg-prog-portfolio3.herokuapp.com"//backEnd3
   //baseUrl:"https://secret-journey-76793.herokuapp.com" //backEnd-developer
   //baseUrl: "https://arg-prog-back-end.herokuapp.com"//arg-prog-back-end
-  //baseUrl:"http://localhost:8080" 
+  baseUrl:"http://localhost:8080" 
 };
