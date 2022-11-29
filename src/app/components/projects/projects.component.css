@@ -23,6 +23,7 @@ a {
 
 .card{
     border: none;
+   
 }
 
 .card-img-overlay{
@@ -31,7 +32,6 @@ a {
     padding-bottom:2px;
     padding-left:2px;
     padding-right:2px;
-    
 }
  .title{
     width: 100%;
@@ -47,13 +47,13 @@ a {
 .option1{
     max-height: 50%;
     object-fit: cover;
-    
+    display:none;
 }
 
 
 .option2 {
-    display: none;
-   
+  display: contents;
+ 
 }
 
 .card-text{
@@ -135,22 +135,13 @@ button-delete{
         grid-template-columns: 1fr 100fr 100fr;
         padding-right: 20px;
     }
-    /*.ngForOther{
-       display: flex;
-       flex-direction: row;
-        gap:20px;
-    }*/
 
-    .option1{
+    /*.option1{
         display:none;
     }
     .option2 {
         display:contents;
         
-    }
-
-   /* .cardOthers{
-        width: 40%;
     }*/
 }
 

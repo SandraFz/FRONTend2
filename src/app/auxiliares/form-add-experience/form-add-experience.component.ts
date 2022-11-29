@@ -43,8 +43,9 @@ export class FormAddExperienceComponent implements OnInit {
       const {id, company, asignament, anio_salida, duracion, logo_experience, link_experience} = res
       this.idExp = id;
       this.addImg(this.idExp)
+      console.log("this.idExp")
       console.log(this.idExp)
-      window.location.reload()
+      //window.location.reload()
     }, error => {
       console.log(error)
     })
@@ -52,9 +53,11 @@ export class FormAddExperienceComponent implements OnInit {
 
   public addImg(id:number){
     let image = this.formImgExperience.value
-    this.service.addImgExperience(id, image).subscribe((res)=> {
+    this.service.addImgExperience(id, image.imgLink).subscribe((res)=> {
       
       this.img.push(res)
+      console.log("img-experience:")
+    
       console.log(this.img)
     }, error => {
       console.log(error)

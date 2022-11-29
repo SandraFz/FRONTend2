@@ -18,10 +18,11 @@ export class ExperienceComponent implements OnInit {
   experience!:Experience;
   idExp!:number;
   formEditExp:FormGroup;
-  formEditImg:FormGroup;
+  
   idImg!:number;
   editImg1!:number;
   listImg!:any;
+  formEditImg:FormGroup;
   
   //Atributos ImgExperience
   images1:ImgExperience[]=[];
@@ -36,6 +37,11 @@ export class ExperienceComponent implements OnInit {
       duracion: new FormControl(''),
       logo_experience: new FormControl(''),
       link_experience: new FormControl(''),
+      /*images: this.formEditImg = this.fb.group({
+        id_img: new FormControl(''),
+        imgLink: new FormControl(''),
+        softSkill: new FormControl(''),
+      })*/
     })
 
     this.formEditImg = this.fb.group ({
@@ -47,27 +53,45 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit(): void {
     this.experienceList();
+    //this.imgExpList1();
+    console.log("this.experience.images")
+    console.log(this.images1)
+
   }
+
+  /*public imgExpList1(){
+    this.expService.imgExperienceList(11).subscribe(res=>{
+      console.log("imgExpList1")
+      console.log(res)
+      this.images1 = res;
+    }, error => {
+      console.log(error);
+    })
+  }*/
 
   //Métodos Experiencia
   public experienceList(){
     this.expService.experienceList().subscribe(res=> {
-      console.log(res)
       this.experiences = res;
-      console.log("Esto viene del primer get y arroja sobre el subForm:")
+      console.log("En lista de experiencias:")
       console.log(res)
+
+      
+      //this.imgExpList(experiences);
     }, error => {
       console.log(error);
     })
   }
 
-  public getExperience(id:number){
-    this.expService.getExperience(id).subscribe(res =>{
+  public getExperience(idExp:number){
+    this.expService.getExperience(idExp).subscribe(res =>{
       const {id, company, asignament, anio_salida, duracion, logo_experience, link_experience} = res
-      this.idExp = id;
+      this.idExp = res.id;
       this.formEditExp.patchValue({id, company, asignament, anio_salida, duracion, logo_experience, link_experience})
-      //this.imgExpList(this.idExp)
-      console.log("Lista nueva para imágenes:", this.formEditExp.value)
+      console.log("Lista nueva para imágenes:")
+      console.log(this.formEditExp.value)
+      this.imgExpList(res.id)
+      
       console.log("console:", res)
       //return this.imgExpList(this.idExp)
       
@@ -81,7 +105,7 @@ export class ExperienceComponent implements OnInit {
     
     this.idExp = expToEdit.id
     this.expService.getExperience(id).subscribe(res => {
-      const {id, company, asignament, anio_salida, duracion, logo_experience, link_experience, images} = res
+      const {id, company, asignament, anio_salida, duracion, logo_experience, link_experience} = res
       this.idExp = id;
       console.log('Esto trae el getExperienceById')
       console.log(this.formEditExp.value)
@@ -97,7 +121,7 @@ export class ExperienceComponent implements OnInit {
       console.log('Esto es el res de getById después del get:', res)
       console.log('El valor nuevo asignado a idExp:', this.idExp)
     })
-   // this.imgExpList(id)
+   this.imgExpList(this.experience.id)
   }
 
   public deleteExperience(idExp:number){
@@ -123,8 +147,9 @@ export class ExperienceComponent implements OnInit {
   }
 
   //Métodos ImgExperience 
-  public imgExpList(){
-    this.expService.imgExperienceList(this.idExp).subscribe(res=>{
+  public imgExpList(idExp:number){
+    this.expService.imgExperienceList(idExp).subscribe(res=>{
+      console.log("res de imgExpList en formulario:")
       console.log(res)
       this.images1 = res;
     }, error => {

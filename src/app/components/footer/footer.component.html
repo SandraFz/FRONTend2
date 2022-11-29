@@ -1,26 +1,34 @@
 <footer>
     <section class="links">
         <div class="cont cont-links">
-                <div class="footer-nav-wrapper">
+            <div class="footer-nav-wrapper">
 
-                    <!--<div class="link-group about">
-                        <span class="footer-link-wrapper">
-                            <a href="about/whatistechpocket/index.php" class="link-1">
-                                <p>Facebook</p>
-                            </a>
-                            </span>
+                <div class="link-group about">
+                    <!--<p>{{currentDate}}
                         
-                    </div>-->
+                    </p>-->
+                    <!--<form action="">
+                            <input type="date" id="date">
+                    </form>-->
+                    <span class="footer-link-wrapper" ngFor="let socMed of socMedia">
 
-                    <div class="brief-page-info">
-                        <div>
-                            <p>En tu móvil:</p>
-                        </div>
-                        <img src="../../../assets/img/codigoQR.png" alt="Código QR">
-                    </div>
+                        <a href={{socMed.link_SM}} class="link-1">
+                            <p>{{currentDate}}</p>
+                           
+                        </a>
+                    </span>
 
-                    <div class="social"></div>
                 </div>
+
+                <div class="brief-page-info">
+                    <div>
+                        <p>En tu móvil:</p>
+                    </div>
+                    <img src="../../../assets/img/codigoQR.png" alt="Código QR">
+                </div>
+
+                <div class="social"></div>
+            </div>
         </div>
     </section>
 </footer>

@@ -31,7 +31,7 @@ export class FooterService {
     return this.http.get<Contact>(this.url+`/soc_media/find/${idSM}`);
   }
 
-  public updateSkill(idSM:number, socMed:Contact){
+  public updateSM(idSM:number, socMed:Contact){
     return this.http.put<Contact>(this.url+`/soc_media/edit/${idSM}`, socMed);
   }
 }

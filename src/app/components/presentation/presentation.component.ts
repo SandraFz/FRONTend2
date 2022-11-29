@@ -63,7 +63,10 @@ formEdit:FormGroup;
     console.log(this.formEdit)
     }, error => {
       console.log(error)
-    })
+    }) 
+  }
+
+  public  actualAge(){
     
   }
 

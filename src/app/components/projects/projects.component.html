@@ -64,7 +64,7 @@
                                             <div class="modal-footer">
 
                                                 <button type="button" class="btn btn-save"
-                                                    (click)="editProject(project.id_project)">Guardar</button>
+                                                    (click)="editProject()">Guardar</button>
                                                 <button type="button" class="btn btn-close" data-dismiss="modal">
                                                     Cerrar
                                                 </button>
@@ -149,7 +149,7 @@
                                                     <div class="modal-footer">
 
                                                         <button type="button" class="btn btn-save"
-                                                            (click)="editProject(project.id_project)">Guardar</button>
+                                                            (click)="editProject()">Guardar</button>
                                                         <button type="button" class="btn btn-close" data-dismiss="modal">
                                                             Cerrar
                                                         </button>
@@ -166,10 +166,9 @@
 
                     <div class="card option1">
 
-
-
-
-                        <img [src]="project.img_proy" class="card-img imgCard1" alt="...">
+                        <a [href]="project.link_project" target="_blank">
+                            <img [src]="project.img_proy" class="card-img imgCard1" alt="...">
+                        </a>
                         <div class="card-img-overlay">
 
                             <p class="card-text"><strong>{{project.name_project}}</strong> - {{project.description}}</p>
@@ -178,9 +177,9 @@
 
                     <div class="card option2">
 
-
-
-                        <img [src]="project.img_proy" class="card-img-top" alt="...">
+                        <a [href]="project.link_project" target="_blank">
+                            <img [src]="project.img_proy" class="card-img-top" alt="...">
+                        </a>
                         <div class="card-body">
                             <h5 class="card-title2">{{project.name_project}}</h5>
                             <p class="card-text2">{{project.description}}</p>

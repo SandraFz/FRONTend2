@@ -13,6 +13,7 @@ export class ProjectsComponent implements OnInit {
   projects:Project[] = [];
   project!:Project;
   idProy!:number;
+  idProyToEdit!:number;
   formEditProy1:FormGroup;
 
   constructor(private servicio:ProjectService, private fb:FormBuilder) { 
@@ -54,20 +55,22 @@ export class ProjectsComponent implements OnInit {
       console.log("getById arroja:", res)
       console.log(res)
       this.project = res
+      this.formEditProy1.controls['id_project'].setValue(this.project.id_project);  
       this.formEditProy1.controls['name_project'].setValue(this.project.name_project);
       this.formEditProy1.controls['principal'].setValue(this.project.principal);
       this.formEditProy1.controls['description'].setValue(this.project.description);
       this.formEditProy1.controls['img_proy'].setValue(this.project.img_proy);
       this.formEditProy1.controls['logo_img'].setValue(this.project.logo_img);
       this.formEditProy1.controls['link_project'].setValue(this.project.link_project);
+      this.idProyToEdit=res.id_project;
       console.log("Lo que queda en el formulario después del setValue:", this.formEditProy1.value)
     }, error => {
       console.log(error)
     })
   } 
 
-  public editProject(id:number){
-    this.servicio.updateProject(id, this.formEditProy1.value).subscribe((res)=>{
+  public editProject(){
+    this.servicio.updateProject(this.idProyToEdit, this.formEditProy1.value).subscribe((res)=>{
       window.location.reload()
     }, error => {
       console.error(error)

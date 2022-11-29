@@ -41,12 +41,12 @@ export class ExperienceService {
 
   //CRUD imgExperience
 
-  public imgExperienceList(id:number):Observable<ImgExperience[]>{
-    return this.http.get<ImgExperience[]>(this.url+`/exp/img/list/${id}`)
+  public imgExperienceList(idExp:number):Observable<ImgExperience[]>{
+    return this.http.get<ImgExperience[]>(this.url+`/exp/img/list/${idExp}`)
   }
 
-  public getImg(id:number):Observable<ImgExperience>{
-    return this.http.get<ImgExperience>(this.url+`/exp/img/find/${id}`)
+  public getImg(idImg:number):Observable<ImgExperience>{
+    return this.http.get<ImgExperience>(this.url+`/exp/img/find/${idImg}`)
   }
 
   public addImgExperience(idExp:number, imgExp:ImgExperience):Observable<ImgExperience>{
@@ -57,8 +57,8 @@ export class ExperienceService {
     return this.http.delete<ImgExperience>(this.url+`/exp/img/delete/${idExp}/${idImg}`)
   }
  
- public updateImg(id:number, img:ImgExperience){
-  return this.http.put<ImgExperience>(this.url+`/exp/img/edit/${id}`, img)
+ public updateImg(idImg:number, img:ImgExperience){
+  return this.http.put<ImgExperience>(this.url+`/exp/img/edit/${idImg}`, img)
  } 
 
 }

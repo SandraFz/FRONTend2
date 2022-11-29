@@ -56,15 +56,15 @@
 
                     <label for="table">
                     </label>
-                    <tr *ngFor="let img of this.experience.images">
+                    <tr *ngFor="let img of images1">
                       <td>
                         <div>
-                          <img src="{{img.imgLink}}" style="width: 25px; height: auto;" alt="">
+                          <img [src]="img.imgLink" style="width: 25px; height: auto;" alt="">
                         </div>
                       </td>
                       <td style="font-size: 11px; font-weight: lighter; margin: auto, 2px, auto, 2px;">
                         {{img.softSkill}}
-                      
+
                       </td>
                       <td>
                         <div class="button">
@@ -118,18 +118,18 @@
     </div>
     <!--Fin del formulario-->
 
-    <p><a [href]="experience.link_experience" target="_blank">{{experience.id}}-{{experience.company}}</a> - {{experience.asignament}} -
+    <p><a [href]="experience.link_experience" target="_blank"> {{experience.company}}</a> - {{experience.asignament}} -
       {{experience.duracion}} - hasta {{experience.anio_salida}}.</p>
 
     <div id="carouselExample1" class="carousel slide z-depth-1-half" data-ride="carousel">
       <div class="carousel-inner">
 
-        <div class="carousel-item" *ngFor="let img of experience.images; index as i" [ngClass]="{'active': i == 0 }">
-          <img class="d-block w-100" [src]="img.imgLink" alt="First slide">
+        <div  class="carousel-item" *ngFor="let img of images1; index as i" [ngClass]="{'active': i == 0 }"> <!--this.experience.images-->
+          <img id="imgExp" class="d-block w-100" [src]="img.imgLink" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
             <p class="card-text">{{img.softSkill}}</p>
           </div>
-          <p class="card-text">{{img.softSkill}}</p>
+          <!--<p class="card-text">{{img.softSkill}}</p>-->
         </div>
 
       </div>

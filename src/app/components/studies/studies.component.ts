@@ -14,6 +14,7 @@ export class StudiesComponent implements OnInit {
   studies:Study[] = [];
   study!:Study;
   idStu!:number;
+  idStuToEdit!:number;
   formEditStu:FormGroup;
 
   constructor(private servicio:StudiesService, private fb:FormBuilder) {
@@ -44,7 +45,7 @@ export class StudiesComponent implements OnInit {
   public deleteStudy(id:number){
     this.servicio.deleteStudy(id).subscribe(()=> {
       console.log("El id que trae delete:", id)
-      //window.location.reload();
+      window.location.reload();
     }, error => {
       console.log("DeleteStudy error:", error);
     })
@@ -61,18 +62,18 @@ export class StudiesComponent implements OnInit {
       this.formEditStu.controls['anio_end'].setValue(this.study.anio_end);
       this.formEditStu.controls['logo_studies'].setValue(this.study.logo_studies);
       this.formEditStu.controls['link_studies'].setValue(this.study.link_studies);
+      this.idStuToEdit = res.id;
       console.log("El formEditStu después del setValue:", this.formEditStu.value)
     }, error => {
       console.log(error)
     })
   }
 
-  public editStudy(id:number){
-    this.servicio.updateStudy(id, this.formEditStu.value).subscribe((res) => {
-      window.location.reload()
+  public editStudy(){
+    this.servicio.updateStudy(this.idStuToEdit, this.formEditStu.value).subscribe((res) => {
+     window.location.reload()
     }, error => {
       console.error(error)
     })
   }
-
 }
