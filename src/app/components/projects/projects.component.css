@@ -26,6 +26,28 @@ a {
    
 }
 
+.principal-card{
+    height: 40%!important;
+    /* min-height: 300px;
+    max-height: 400px; */
+    border: 2px solid black;
+    object-fit: cover;
+}
+
+.cardOthers{
+    border: 1px solid black;
+}
+
+.card-body{
+    border: 2px solid red;
+    object-fit: cover!important;
+    height: auto;
+}
+
+.card-principal-text{
+    object-fit: cover;
+}
+
 .card-img-overlay{
     display: flex;
     align-items: flex-end;
@@ -39,9 +61,9 @@ a {
  }
  
 .objetfitcover > img{
+    /* height: 50%; */
 	max-height: 300px;
 	object-fit: cover;
-    
 	
 }
 .option1{

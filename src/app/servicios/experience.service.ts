@@ -22,7 +22,8 @@ export class ExperienceService {
   }
 
   public addExperience(exp:Experience):Observable<Experience>{
-    return this.http.post<Experience>(this.url+"/exp/new/"+this.idPers, exp)
+     let exp1 = this.http.post<Experience>(this.url+"/exp/new/"+this.idPers, exp)
+      return exp1;
   }
 
   public deleteExperience(idExp:number){

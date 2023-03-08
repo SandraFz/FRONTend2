@@ -48,6 +48,7 @@ export class ExperienceComponent implements OnInit {
       id_img: new FormControl(''),
       imgLink: new FormControl(''),
       softSkill: new FormControl(''),
+      experience: new FormControl('')
     })
   }
 
@@ -87,6 +88,7 @@ export class ExperienceComponent implements OnInit {
     this.expService.getExperience(idExp).subscribe(res =>{
       const {id, company, asignament, anio_salida, duracion, logo_experience, link_experience} = res
       this.idExp = res.id;
+      console.log(`Esto trae el getExperience: ${res.id}`)
       this.formEditExp.patchValue({id, company, asignament, anio_salida, duracion, logo_experience, link_experience})
       console.log("Lista nueva para imágenes:")
       console.log(this.formEditExp.value)
@@ -106,7 +108,7 @@ export class ExperienceComponent implements OnInit {
     this.idExp = expToEdit.id
     this.expService.getExperience(id).subscribe(res => {
       const {id, company, asignament, anio_salida, duracion, logo_experience, link_experience} = res
-      this.idExp = id;
+      // res.id = this.idExp;
       console.log('Esto trae el getExperienceById')
       console.log(this.formEditExp.value)
       this.experience = res
@@ -126,19 +128,19 @@ export class ExperienceComponent implements OnInit {
 
   public deleteExperience(idExp:number){
     this.expService.deleteExperience(idExp).subscribe(()=>{
-      window.location.reload()
+      // window.location.reload()
     }, error => {
       console.log(error)
     })
   }
 
   public editExperience(){
-    let editedExp = this.formEditExp.value
+    // let editedExp = this.formEditExp.value
     console.log("Esto viene en el formulario al hacer click en edit:", this.formEditExp.value)
     //console.log(editedExp)
     this.expService.updateExperience(this.idExp, this.formEditExp.value).subscribe(res=>{
       console.log("res después de hacer click en editExperience:", res)
-      //window.location.reload()
+      window.location.reload()
       this.getExperience(this.idExp)
       //this.getExperience(editedExp)
     }, error => {
@@ -174,6 +176,7 @@ export class ExperienceComponent implements OnInit {
   public getImg(idImg:number){
     this.expService.getImg(idImg).subscribe(res=>{
       const {id_img, imgLink, softSkill} = res
+      console.log(`Esto trae el getImg: ${res.id_img}`)
       this.idImg = id_img;
       //this.imgForm.setValue({imgLink, softSkill})
       this.formEditImg.setValue({id_img, imgLink, softSkill})

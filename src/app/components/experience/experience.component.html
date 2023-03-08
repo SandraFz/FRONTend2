@@ -6,13 +6,13 @@
     <app-form-add-experience class="modal" id="add_exp" arie-hidden="true"></app-form-add-experience>
   </div>
 
-  <div *ngFor="let experience of experiences" class="sub-container">
+  <div *ngFor="let experience of experiences" class="sub-container bg-success">
 
     <hr class="mb-3" />
     <!--Botones y formularios-->
     <div class="button">
 
-      <app-button-edit data-toggle="modal" data-target="#edit_exp" (click)="getExperienceById(experience.id)">
+      <app-button-edit data-toggle="modal" data-target="#edit_exp" (click)="getExperience(experience.id)">
       </app-button-edit>
       <app-button-delete (click)="deleteExperience(experience.id)"></app-button-delete>
 
@@ -86,6 +86,7 @@
                       <!-- <label for="imgLink">Id:</label>
                       <input type="text" id="imgLink" formControlName="imgLink" class="form-control sub_imput">
                     -->
+                    <!-- <input type="text" formControlName="experience" class="d-none" value=""> -->
 
                       <label for="imgLink">Imagen:</label>
                       <input type="text" id="imgLink" formControlName="imgLink" class="form-control sub_imput">
@@ -120,18 +121,20 @@
 
     <p><a [href]="experience.link_experience" target="_blank"> {{experience.company}}</a> - {{experience.asignament}} -
       {{experience.duracion}} - hasta {{experience.anio_salida}}.</p>
-
+      <div [style]=""></div>
+<!-- 
     <div id="carouselExample1" class="carousel slide z-depth-1-half" data-ride="carousel">
       <div class="carousel-inner">
-
-        <div  class="carousel-item" *ngFor="let img of images1; index as i" [ngClass]="{'active': i == 0 }"> <!--this.experience.images-->
+    
+        <div class="carousel-item" *ngFor="let img of images1; index as i" [ngClass]="{'active': i == 1 }">
+         
           <img id="imgExp" class="d-block w-100" [src]="img.imgLink" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
             <p class="card-text">{{img.softSkill}}</p>
           </div>
-          <!--<p class="card-text">{{img.softSkill}}</p>-->
+          <p class="card-text">{{img.softSkill}}</p>
         </div>
-
+    
       </div>
       <a class="carousel-control-prev" href="#carouselExample1" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -141,7 +144,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div>
+    </div> -->
 
   </div>
 

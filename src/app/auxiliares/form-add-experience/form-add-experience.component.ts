@@ -28,6 +28,7 @@ export class FormAddExperienceComponent implements OnInit {
   formImgExperience = new FormGroup ({
     imgLink: new FormControl(''),
     softSkill: new FormControl(''),
+    experience: new FormControl('')
   })
 
   constructor( private service:ExperienceService) { }
@@ -35,33 +36,46 @@ export class FormAddExperienceComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   public addExperience(){
     let experience = this.formExperience.value
-    console.log(experience)
+    // let imagen = this.formImgExperience.value
+    console.log(`Esto es experience: ${JSON.stringify(experience)}`)
+    // console.log(`Esto es image de addImg: ${JSON.stringify(imagen)}`)
+
     this.service.addExperience(experience).subscribe((res)=> {
+      console.log(`Este es el res.id de addExperience: ${res.id}`)
+
       this.exp.push(res)
-      const {id, company, asignament, anio_salida, duracion, logo_experience, link_experience} = res
-      this.idExp = id;
-      this.addImg(this.idExp)
-      console.log("this.idExp")
-      console.log(this.idExp)
+      // const {id, company, asignament, anio_salida, duracion, logo_experience, link_experience} = res
+      this.idExp = res.id;
+      return this.idExp;
+      // console.log("FUNNCIONA O NO? ", this.idExp)
       //window.location.reload()
     }, error => {
       console.log(error)
     })
   }
 
-  public addImg(id:number){
+  public addImg(){
     let image = this.formImgExperience.value
-    this.service.addImgExperience(id, image.imgLink).subscribe((res)=> {
+    // this.idExp = this.addExperience();
+    console.log(`El idExp en addImg: ${this.idExp}`)
+    // console.log(`Esto es image de addImg: ${JSON.stringify(image)}`)
+    this.service.addImgExperience(this.idExp, image.imgLink).subscribe((res)=> {
       
       this.img.push(res)
-      console.log("img-experience:")
-    
-      console.log(this.img)
+    //   console.log("img-experience:")
+    //   console.log(this.img)
     }, error => {
       console.log(error)
     })
   }
+
+  public addExpAndImg(){
+    this.addExperience()
+    // this.addImg()
+  }
+
 
 }

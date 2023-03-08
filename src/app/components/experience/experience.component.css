@@ -1,5 +1,7 @@
 .component-container{
     width: 100%;
+    display: block!important;
+    height: auto;
 }
 
 .sub-container {
