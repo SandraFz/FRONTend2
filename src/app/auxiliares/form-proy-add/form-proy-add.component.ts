@@ -85,7 +85,7 @@ export class FormProyAddComponent implements OnInit {
     let project = this.formProject.value
     this.servicio.addProject(project).subscribe((res)=> {
       this.proy.push(res)
-      // window.location.reload()
+      window.location.reload()
     }, error => {
       console.error(error)
     })

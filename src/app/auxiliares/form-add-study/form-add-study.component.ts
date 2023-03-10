@@ -32,7 +32,7 @@ export class FormAddStudyComponent implements OnInit {
     let stu = this.formAddStudy.value
     this.servicio.addStudy(stu).subscribe((res)=> {
       this.studies.push(res)
-      // window.location.reload()
+      window.location.reload()
     }, error => {
       console.log(error)
     })

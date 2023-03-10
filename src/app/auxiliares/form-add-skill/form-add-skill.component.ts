@@ -28,7 +28,7 @@ export class FormAddSkillComponent implements OnInit {
     let skill = this.formAddSkill.value
     this.servicio.addSkill(skill).subscribe((res)=> {
       this.skills.push(res)
-      // window.location.reload()
+      window.location.reload()
     }, error => {
       console.log(error)
     })
