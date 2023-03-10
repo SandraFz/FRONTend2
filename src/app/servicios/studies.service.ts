@@ -22,8 +22,8 @@ export class StudiesService {
     return this.http.post<Study>(this.url+'/studies/new/'+this.idPers, stu);
   }
 
-  public deleteStudy(idStu:number){
-    return this.http.delete<Study>(this.url+'/skill/delete/'+this.idPers+`/${idStu}`);
+  public deleteStudy(idStu:number):Observable<Study>{
+    return this.http.delete<Study>(this.url+'/studies/delete/'+this.idPers+`/${idStu}`);
   }
 
   public getStudy(idStu:number):Observable<Study>{

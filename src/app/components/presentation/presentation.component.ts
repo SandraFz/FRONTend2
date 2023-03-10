@@ -37,11 +37,11 @@ formEdit:FormGroup;
 
   public getPerson(){
     this.integration.getPerson().subscribe(res => {
-      console.log("Esto es del get para databinding")
-      console.log(res);
+      // console.log("Esto es del get para databinding")
+      // console.log(res);
       this.person=res;
     }, error => {
-      console.log(error);
+      // console.log(error);
     })
   }
 
@@ -49,8 +49,8 @@ formEdit:FormGroup;
     let personToEdit = this.formEdit.value
     this.idPers = personToEdit.id
     this.integration.getPerson().subscribe(res => {
-      console.log("getById arroja:")
-      console.log(res)
+      // console.log("getById arroja:")
+      // console.log(res)
       this.person = res
     this.formEdit.controls['id_person'].setValue(this.person.id_person);
     this.formEdit.controls['name'].setValue(this.person.name);
@@ -60,7 +60,7 @@ formEdit:FormGroup;
     this.formEdit.controls['origin'].setValue(this.person.origin);
     this.formEdit.controls['presentation'].setValue(this.person.presentation);
     this.formEdit.controls['professional_photo'].setValue(this.person.professional_photo);
-    console.log(this.formEdit)
+    // console.log(this.formEdit)
     }, error => {
       console.log(error)
     }) 

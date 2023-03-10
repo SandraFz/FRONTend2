@@ -30,16 +30,16 @@ a {
     height: 40%!important;
     /* min-height: 300px;
     max-height: 400px; */
-    border: 2px solid black;
+    /* border: 2px solid black; */
     object-fit: cover;
 }
 
 .cardOthers{
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .card-body{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     object-fit: cover!important;
     height: auto;
 }
